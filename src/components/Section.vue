@@ -85,7 +85,4 @@ svg {
   margin-left: 581px;
   margin-top: 166px;
 }
-
-button {
-}
 </style>
