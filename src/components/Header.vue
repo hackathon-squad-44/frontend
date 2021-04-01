@@ -13,6 +13,7 @@
 
       <button class="text">DOAR</button>
     </header>
+    <hr />
   </div>
 </template>
 
