@@ -9,10 +9,13 @@ body {
 .botaoRoxo{
   background:  #8C30F5;
 }
+
 .roxoLetra{
   color:  #8C30F5;
 }
-
+.verdeLetra{
+  color:  #66922A;
+}
 .botao{
   border-radius: 8px;
   width: 335px;
