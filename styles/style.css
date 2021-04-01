@@ -1,9 +1,61 @@
 body {
-  height: 1600px;
+  /* height: 1200px; */
   padding-top: 85px;
 }
 
-.box-shadow {
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,.05),
-              0 4px 8px 0 rgba(0,0,0,.05);
+.botaoVerde{
+  background-color: #66922A;
+}
+.botaoRoxo{
+  background:  #8C30F5;
+}
+.roxoLetra{
+  color:  #8C30F5;
+}
+
+.botao{
+  border-radius: 8px;
+  width: 335px;
+  height: 43px;
+}
+.background{
+  background:#66922A;
+  height: 104px;
+}
+.mochila{
+  width: 249px;
+}
+.inputInfo{
+  border: 1px solid #D9DBE9;
+  box-sizing: border-box;
+  border-radius: 5px;
+  width: 300px;
+  height: 46px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.botao2{
+  border-radius: 8px;
+  width: 327px;
+  height: 60px;
+}
+.alinhamento{
+  text-align: center;
+}
+.padding16{
+  padding: 16px;
+}
+.setarMargin{
+  margin: 0px;
+}
+.setarPadding{
+  padding:0px;
+}
+.teste{
+  width: 300px;
+}
+
+.alinhamentoBotao{
+  margin: 0px auto;
 }
