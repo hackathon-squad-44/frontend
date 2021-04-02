@@ -1,35 +1,34 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Manrope", sans-serif;
+}
+
 body {
   /* height: 1200px; */
   padding-top: 85px;
 }
 
-.botaoVerde{
-  background-color: #66922A;
+.botaoVerde {
+  background-color: #66922a;
 }
-.botaoRoxo{
-  background:  #8C30F5;
+.botaoRoxo {
+  background: #8c30f5;
 }
 
-.roxoLetra{
-  color:  #8C30F5;
+.roxoLetra {
+  color: #8c30f5;
 }
-.verdeLetra{
-  color:  #66922A;
-}
-.botao{
-  border-radius: 8px;
-  width: 335px;
-  height: 43px;
-}
-.background{
-  background:#66922A;
+
+.background {
+  background-image: linear-gradient(to right, #66922a, #91b54c);
   height: 104px;
 }
-.mochila{
+.mochila {
   width: 249px;
 }
-.inputInfo{
-  border: 1px solid #D9DBE9;
+.inputInfo {
+  border: 1px solid #d9dbe9;
   box-sizing: border-box;
   border-radius: 5px;
   width: 300px;
@@ -38,35 +37,38 @@ body {
   padding: 0px;
 }
 
-.botao2{
+.botao2 {
   border-radius: 8px;
   width: 327px;
   height: 60px;
 }
-.alinhamento{
+.alinhamento {
   text-align: center;
 }
-.padding16{
+.padding16 {
   padding: 16px;
 }
-.setarMargin{
+.setarMargin {
   margin: 0px;
 }
-.setarPadding{
-  padding:0px;
+.setarPadding {
+  padding: 0px;
 }
-.teste{
+.teste {
   width: 300px;
 }
 
-.alinhamentoBotao{
+.alinhamentoBotao {
   margin: 0px auto;
 }
-.copy{
+.copy {
   width: 400px;
   height: 55px;
 }
+<<<<<<< HEAD
 .barraPesquisa{
   width: 328px;
 }
 
+=======
+>>>>>>> 13413505cfe9529b0721328b38657bef8d02e88d

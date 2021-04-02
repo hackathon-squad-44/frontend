@@ -3,17 +3,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="../styles/bootstrap.css">
     <link rel="stylesheet" href="../styles/style.css">
     <title>Mochila cheia</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-md navbar-light bg-warning fixed-top py-4 box-shadow" >
+    <nav class="nav navbar navbar-expand-md navbar-light bg-warning fixed-top py-4 box-shadow">
         <a href="index.html" class="navbar-brand">
           <img src="" alt="Mochila Cheia">
         </a>
         
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Abrir Navegação">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Abrir Navegação">
           <span class="navbar-toggler-icon"></span>
         </button>
         
@@ -29,10 +34,7 @@
             <li class="nav-item">
               <a class="nav-link " href="perguntas.html">Perguntas Frequentes</a>
             </li>
-            <li class="nav-item">
-                <a class="btn btn-outline-roxo verdeLetra btn-outline-primary ml-md-2" href="#">Login</a>
-            </li>
-
+            <button type="submit" class=" btn btn-outline-roxo verdeLetra btn-outline-primary ml-md-2">DOAR</button>
           </ul>
         </div>
     </nav>
@@ -68,54 +70,20 @@
             </section>
             <section class="conatiner col-6 mx-auto pt-5 pb-5 ">
                 <div class="d-grid gap-2 col-6 mx-auto">
-                    <button class="btn botao botaoVerde  mx-auto" type="submit">Mostrar Escolas</button>
-                    <p class=" mx-auto mt-2">Precisa de doação? Clica aqui embaixo!</p>
-                    <button class="btn botao botaoRoxo  mx-auto" type="submit">Cadastrar Estudantes</button>
-                  </div>
-                  <section class="conatiner col-8 mx-auto pt-5 pb-5">
-                    <div class="input-group flex-nowrap">
-                        <span class="input-group-text" id="addon-wrapping">	
-                            &#128269;</span>
-                        <input type="text" class="form-control" placeholder="Digite o material ou escola" aria-label="Username" aria-describedby="addon-wrapping">
-                      </div>
-                      <div class="input-group flex-nowrap mx-auto pt-5 pb-5">
-                        <span class="input-group-text" id="addon-wrapping">	
-                            &#128269;</span>
-                        <input type="text" class="form-control" placeholder="Cidade ou Estado" aria-label="Username" aria-describedby="addon-wrapping">
-                      </div>
-                </section>
+                    <button class="btn botao botaoVerde mx-auto" type="submit">Criar Conta</button>
+                </div>
             </section>
         
     </main>
-    <footer class=" container-fluid botaoVerde text-white py-2 mt-5 " >
-        <div class="container">
-            <div class="row">
-                <div class="col-8 roxoLetra">
-                    <h4 class="h6">Páginas</h4>
-                    <ul class="list-unstyled text-danger">
-                        <li><a href="" class="text-warning">Facebook</a></li>
-                        <li><a href="" class="text-warning">Twitter</a></li>
-                        <li><a href=""class="text-warning">Instagram</a></li>
-                    </ul>  
-                </div>
-                <div class="col-4 ">
-                    <h4 class="h6 roxoLetra">Páginas</h4>
-                    <ul class="list-unstyled text-warning">
-                        <li><a href="" class="text-warning">Facebook</a></li>
-                        <li><a href="" class="text-warning">Twitter</a></li>
-                        <li><a href="" class="text-warning">Instagram</a></li>
-                    </ul>  
-                </div>
-            </div>
-        </div>
-    </footer>
-    <div class=" container-fluid bg-warning" >
-      <div class="container">
-          <div class="row">
-              <p class="copy roxoLetra pt-3 mx-auto">© 2021 Mochila Cheia.  Todos os direitos reservados</p>
+    <footer class="text-white py-2 mt-5 " >
+        <div class="bg-warning" >
+          <div class="container">
+              <div class="row">
+                  <p class="copy roxoLetra pt-3 mx-auto">© 2021 Mochila Cheia.  Todos os direitos reservados</p>
+              </div>
           </div>
       </div>
-  </div>
+    </footer>
 
     <script type="text/javascript" src="../js/bootstrap.js"></script>
     <script type="text/javascript" src="../js/jquery-3.2.1.slim.min.js"></script>
