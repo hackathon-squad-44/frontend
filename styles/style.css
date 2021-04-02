@@ -12,6 +12,10 @@ body {
 .botaoVerde {
   background-color: #66922a;
 }
+.botaoVerde:hover {
+  background-color: #8c30f5;
+  color: white;
+}
 .botaoRoxo {
   background: #8c30f5;
 }
