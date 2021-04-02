@@ -16,6 +16,10 @@ body {
   background-color: #8c30f5;
   color: white;
 }
+.botaoVerde a {
+  text-decoration: none;
+  color: white;
+}
 .botaoRoxo {
   background: #8c30f5;
 }
