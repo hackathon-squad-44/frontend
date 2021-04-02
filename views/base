@@ -9,7 +9,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-light bg-warning fixed-top py-4 box-shadow" >
-        <a href="#" class="navbar-brand">
+        <a href="index.html" class="navbar-brand">
           <img src="" alt="Mochila Cheia">
         </a>
         
@@ -30,7 +30,7 @@
               <a class="nav-link " href="perguntas.html">Perguntas Frequentes</a>
             </li>
             <li class="nav-item">
-              <a class="btn btn-outline-roxo verdeLetra btn-outline-primary ml-md-2" href="#">DOAR</a>
+              <a class="btn btn-outline-roxo verdeLetra btn-outline-primary ml-md-2" href="#">Login</a>
             </li>
 
           </ul>
@@ -120,3 +120,8 @@
     
 </body>
 </html>
+
+
+              <li class="nav-item">
+                <a class="btn btn-outline-roxo verdeLetra btn-outline-primary ml-md-2" href="#">Login</a>
+              </li>

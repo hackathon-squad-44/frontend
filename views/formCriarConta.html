@@ -9,11 +9,11 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-light bg-warning fixed-top py-4 box-shadow" >
-        <a href="#" class="navbar-brand">
+        <a href="index.html" class="navbar-brand">
           <img src="" alt="Mochila Cheia">
         </a>
         
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Abrir Navegação">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Abrir Navegação">
           <span class="navbar-toggler-icon"></span>
         </button>
         
@@ -21,13 +21,13 @@
           <ul class="navbar-nav ms-auto me-5">
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="contato.html">Contato</a>
+              <a class="nav-link" href="#">Contato</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="causa.html">Nossa Causa</a>
+              <a class="nav-link" href="#">Nossa Causa</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link " href="perguntas.html">Perguntas Frequentes</a>
+              <a class="nav-link " href="#">Perguntas Frequentes</a>
             </li>
             <li class="nav-item">
               <a class="btn btn-outline-roxo verdeLetra btn-outline-primary ml-md-2" href="#">DOAR</a>
@@ -48,42 +48,55 @@
     </section>
 
     <section class="container-sm col-12">
-        <div class="row ">
-            <form class=" container-md col-12 mb-3  mx-auto " >
-              <div class="container-md col-12 mb-3 pt-5 mx-auto ">
-                  <div class="teste mx-auto">
-                    <label for="exampleInputEmail1" class="form-label roxoLetra">E-mail</label>
-                  </div>
-                  <input type="email" class="form-control inputInfo  mx-auto" id="exampleInputEmail1" aria-describedby="emailHelp">
-                  <div id="emailHelp" class="form-text teste  mx-auto">Nunca compartilhe suas informações pessoais.</div>
+        <form class="row  needs-validation" novalidate>
+            <div class="col-md-6 position-relative mt-5">
+              <label for="validationTooltip01" class="form-label roxoLetra">Primeiro Nome</label>
+              <input type="text" class="form-control verdeLetra" id="validationTooltip01" value="Maria" required>
+              <div class="valid-tooltip">
+                Looks good!
               </div>
-              <div class="container-md col-12 mb-3 mx-auto ">
-                  <div class="teste mx-auto">
-                    <label for="exampleInputEmail1" class="form-label roxoLetra">Senha</label>
-                  </div>
-                      <input type="password" id="inputPassword5" class="form-control inputInfo mx-auto" aria-describedby="passwordHelpBlock">
-                  <div id="passwordHelpBlock" class="form-text teste mx-auto ">
-                      Conter de 8 a 20 caracteres, letras, números e caracteres especiais.Não podendo conter espaços ou emojis.
-                      <label for="inputPassword5" class="form-label mx-auto">Senha</label>
-                      <input type="password" id="inputPassword5" class="form-control inputInfo" aria-describedby="passwordHelpBlock">
-                      <div id="passwordHelpBlock" class="form-text alinhamento"> 
-                      </div>
-                      <div class="container-md col-12 mb-3 pt-3 mx-auto form-check">
-                      <input type="checkbox" class="form-check-input col-4 form-check" id="exampleCheck1">
-                      <label class="form-check-label roxoLetra ms-2" for="exampleCheck1 ">Não sou robô</label>
-                      </div>
-                  </div>  
-            </div>             
-            </form>
-          </div> 
-      </section> 
-              <section class="container-sm col-12 ">
+            </div>
+            <div class="col-md-6 position-relative mt-5">
+              <label for="validationTooltip02" class="form-label roxoLetra">Sobrenome</label>
+              <input type="text" class="form-control verdeLetra" id="validationTooltip02" value="Silva" required>
+              <div class="valid-tooltip">
+                Looks good!
+              </div>
+            </div>
+            <div class="col-md-4 position-relative mt-5">
+              <label for="validationTooltip03" class="form-label roxoLetra">Cidade</label>
+              <input type="text" class="form-control" id="validationTooltip03" required>
+              <div class="invalid-tooltip">
+                Entre com uma cidade válida.
+              </div>
+            </div>
+            <div class="col-md-4 position-relative mt-5">
+              <label for="validationTooltip04" class="form-label roxoLetra">Estado</label>
+              <select class="form-select verdeLetra" id="validationTooltip04" required>
+                <option  selected disabled value="">Escolha...</option>
+                <option>São Paulo</option>
+              </select>
+              <div class="invalid-tooltip">
+                Entre com um estado válido.
+              </div>
+            </div>
+            <div class="col-md-4 position-relative mt-5">
+              <label for="validationTooltip05 " class="form-label roxoLetra">CEP</label>
+              <input type="text" class="form-control verdeLetra" id="validationTooltip05" required>
+              <div class="invalid-tooltip">
+                Entre com um CEP válido.
+              </div>
+            </div>
+            <section class="container-sm col-12 ">
                 <div class="row">
-                    <div class=" container-md col-12 mb-3  setarPadding  form-check teste mx-auto " >
+                    <div class=" container-md col-12 mb-3  setarPadding  form-check teste mx-auto mt-5" >
                       <button type="submit" class="btn botaoVerde botao2  alinhamentoBotao">Criar Conta</button>
-                    <p class="teste mt-2 roxoLetra text-center mx-auto">Ja possui uma conta? <a href="views\login.html">Entrar</a> </p>
+                    <p class="teste mt-2 roxoLetra text-center mx-auto">Ja possui uma conta? <a href="login.html">Entrar</a> </p>
                 </div>
               </section>
+          </form>
+    </section> 
+              
     </main>
     <footer class=" container-fluid botaoVerde text-white py-2 mt-5 " >
       <div class="container">
