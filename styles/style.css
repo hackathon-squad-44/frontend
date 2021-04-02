@@ -3,33 +3,36 @@ body {
   padding-top: 85px;
 }
 
-.botaoVerde{
-  background-color: #66922A;
-}
-.botaoRoxo{
-  background:  #8C30F5;
+.doar {
+  width: 100px;
+  height: 40px;
+  background-color: #66922a;
+  border-radius: 8px;
+  border-style: none;
+  margin: 0px 32px;
+  color: #ffffff;
 }
 
-.roxoLetra{
-  color:  #8C30F5;
+.botaoVerde {
+  background-color: #66922a;
 }
-.verdeLetra{
-  color:  #66922A;
+.botaoRoxo {
+  background: #8c30f5;
 }
-.botao{
-  border-radius: 8px;
-  width: 335px;
-  height: 43px;
+
+.roxoLetra {
+  color: #8c30f5;
 }
-.background{
-  background:#66922A;
+
+.background {
+  background-image: linear-gradient(to right, #66922a, #91b54c);
   height: 104px;
 }
-.mochila{
+.mochila {
   width: 249px;
 }
-.inputInfo{
-  border: 1px solid #D9DBE9;
+.inputInfo {
+  border: 1px solid #d9dbe9;
   box-sizing: border-box;
   border-radius: 5px;
   width: 300px;
@@ -38,31 +41,31 @@ body {
   padding: 0px;
 }
 
-.botao2{
+.botao2 {
   border-radius: 8px;
   width: 327px;
   height: 60px;
 }
-.alinhamento{
+.alinhamento {
   text-align: center;
 }
-.padding16{
+.padding16 {
   padding: 16px;
 }
-.setarMargin{
+.setarMargin {
   margin: 0px;
 }
-.setarPadding{
-  padding:0px;
+.setarPadding {
+  padding: 0px;
 }
-.teste{
+.teste {
   width: 300px;
 }
 
-.alinhamentoBotao{
+.alinhamentoBotao {
   margin: 0px auto;
 }
-.copy{
+.copy {
   width: 400px;
   height: 55px;
 }
