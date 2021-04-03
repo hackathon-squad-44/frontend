@@ -3151,13 +3151,13 @@ textarea.form-control-lg {
 }
 
 .btn-outline-primary {
-  color:  #8C30F5;
-  border-color: #8C30F5;
+  color: #880FA3;
+  border-color: #880FA3;
 }
 .btn-outline-primary:hover {
   color: #fff;
-  background-color:#8C30F5;
-  border-color: #8C30F5;
+  background-color:#880FA3;
+  border-color: #880FA3;
 }
 .btn-check:focus + .btn-outline-primary, .btn-outline-primary:focus {
   box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.5);
@@ -6496,7 +6496,7 @@ textarea.form-control-lg {
 }
 
 .border-success {
-  border-color: #8c30f5!important;
+  border-color: #880FA3!important;
 }
 
 .border-info {

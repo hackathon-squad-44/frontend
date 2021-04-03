@@ -6,14 +6,25 @@
 
 body {
   /* height: 1200px; */
-  padding-top: 85px;
+  padding-top: 130px;
 }
-
+@font-face{
+  font-family:  'Bubblegum Sans', cursive;
+  src:  url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap');
+  
+}
+.fonteLogo{
+  font-family:  'Bubblegum Sans', cursive;
+  font-size: 12px;
+  align-items: center;
+  text-decoration: none;
+  color: #000;
+}
 .botaoVerde {
   background-color: #66922a;
 }
 .botaoVerde:hover {
-  background-color: #8c30f5;
+  background-color: #880FA3;
   color: white;
 }
 .botaoVerde a {
@@ -21,11 +32,11 @@ body {
   color: white;
 }
 .botaoRoxo {
-  background: #8c30f5;
+  background:#880FA3;
 }
 
 .roxoLetra {
-  color: #8c30f5;
+  color: #880FA3;
 }
 
 .background {
@@ -90,4 +101,14 @@ body {
 
 .tamanho2{
   width: 400px;
+}
+.texto{
+  color:  #4E4B66;;
+}
+.titulo{
+  color:#14142B;
+}
+
+.logo{
+  width:80px;
 }
