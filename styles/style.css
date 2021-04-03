@@ -4,21 +4,54 @@
   font-family: "Manrope", sans-serif;
 }
 
-body {
-  /* height: 1200px; */
-  padding-top: 130px;
-}
+
 @font-face{
   font-family:  'Bubblegum Sans', cursive;
   src:  url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap');
-  
+  font-family: 'Manrope', sans-serif;
+  src:url ('https://fonts.googleapis.com/css2?family=Manrope:wght@800&display=swap');
 }
 .fonteLogo{
   font-family:  'Bubblegum Sans', cursive;
-  font-size: 12px;
+  font-size: 20px;
   align-items: center;
+  margin: auto;
   text-decoration: none;
   color: #000;
+}
+.navTamanho{
+  width: 150px;
+}
+.manrope{
+  font-family: 'Manrope', sans-serif;
+  font-size: 22px;
+}
+.manrope2{
+  font-weight: 800px;
+  font-weight: 16px;
+  color: #14142B;
+  text-align: center;
+}
+.manrope3{
+  font-weight: 600px;
+  font-weight: 24px;
+  color: #14142B;
+  text-align: center;
+}
+.backIndex{
+  background: #D9DBE9;
+}
+
+
+.h2Index{
+  width: 328px;
+
+}
+.materiasIndex{
+  width: 326px;
+}
+.bordaDiv{
+  border-radius: 0px 0px 0px 30px;
 }
 .botaoVerde {
   background-color: #66922a;
@@ -43,9 +76,7 @@ body {
   background-image: linear-gradient(to right, #66922a, #91b54c);
   height: 104px;
 }
-.mochila {
-  width: 249px;
-}
+
 .inputInfo {
   border: 1px solid #d9dbe9;
   box-sizing: border-box;
@@ -111,4 +142,12 @@ body {
 
 .logo{
   width:80px;
+}
+.mt-n1 {
+  margin-top: -70px !important;
+}
+
+a:active{
+  text-decoration: underline;
+  text-decoration: #880FA3;
 }
