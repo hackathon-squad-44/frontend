@@ -167,3 +167,7 @@ a:active{
   text-decoration: underline;
   text-decoration: #880FA3;
 }
+.tamanhoAdd{
+  height: 44px;
+  width:300px ;
+}
