@@ -46,3 +46,142 @@
           </div>
       </div>
   </div>
+
+
+  text-center
+
+  <span class="
+            avatar
+            image-upload-preview
+        ">
+        <img src="https://lastfm.freetls.fastly.net/i/u/avatar170s/5e1a1541b51be5f872ee844f43a89a2f.webp" alt="Seu avatar" loading="lazy">
+        
+    
+        </span>
+
+
+        <span class="
+            avatar
+            image-upload-preview
+        ">
+        <img src="https://lastfm.freetls.fastly.net/i/u/avatar170s/5e1a1541b51be5f872ee844f43a89a2f.webp" alt="Seu avatar" loading="lazy">
+        
+    
+        </span>
+
+        .content-form .image-upload-preview {
+    max-width: 100%;
+}
+
+<div class="col-xs-4 col-sm-2">
+                        
+        <span class="
+            avatar image-upload-preview ">
+        <img src="" alt="Seu avatar" loading="lazy">   
+        </span>
+    
+                        
+                            <form action="/pt/settings/avatar/delete" method="post" class="image-remove-form">
+                                <input type="hidden" name="csrfmiddlewaretoken" value="2j3Njl0WYTrdBfh780TGHunmHIwjKpjq">
+                                <button class="mimic-link image-upload-remove" type="submit" value="delete-avatar" name="delete-avatar">Excluir imagem</button>
+                            </form>
+                        
+                    </div>
+
+
+<section class="form-section" id="update-picture">
+                <h2 class="form-header">Sua foto</h2>
+                <div class="row _buffer">
+                    <div class="col-xs-4 col-sm-2">
+                        
+        <span class="
+            avatar
+            image-upload-preview
+        ">
+        <img src="https://lastfm.freetls.fastly.net/i/u/avatar170s/5e1a1541b51be5f872ee844f43a89a2f.webp" alt="Seu avatar" loading="lazy">
+        
+    
+        </span>
+    
+                        
+                            <form action="/pt/settings/avatar/delete" method="post" class="image-remove-form">
+                                <input type="hidden" name="csrfmiddlewaretoken" value="2j3Njl0WYTrdBfh780TGHunmHIwjKpjq">
+                                <button class="mimic-link image-upload-remove" type="submit" value="delete-avatar" name="delete-avatar">Excluir imagem</button>
+                            </form>
+                        
+                    </div>
+                    <div class="col-xs-8 col-sm-5">
+                        
+                            <form action="/pt/settings" name="avatar-form" method="post" enctype="multipart/form-data" class="avatar-upload-form">
+                                <input type="hidden" name="csrfmiddlewaretoken" value="2j3Njl0WYTrdBfh780TGHunmHIwjKpjq">
+                                
+                                
+    
+    
+    
+
+    
+    
+        
+            
+    
+        <div class="
+            form-group
+            form-group--avatar
+            js-form-group
+            
+        ">
+            
+                
+                    <label for="id_avatar" class="
+                            control-label
+                            
+                        ">Sua foto</label>
+                
+            
+            <div class="js-form-group-controls form-group-controls">
+                
+                    <span class="btn-secondary btn-file btn-sm">Escolher arquivo<input data-file-input-copy="Escolher arquivo" data-no-file-copy="Nenhum arquivo foi escolhido" data-require="components/file-input" id="id_avatar" name="avatar" type="file"></span><span class="btn-file-label">Nenhum arquivo foi escolhido</span>
+                
+                
+                
+                    <div class="form-row-help-text js-field-help-text">
+                As imagens carregadas serão redimensionadas e cortadas na parte superior.
+                Na maioria dos lugares, a imagem será exibida em um círculo, como no exemplo.
+                </div>
+                
+                
+    
+
+                
+            </div>
+        </div>
+    
+
+        
+    
+
+    
+    <div class="form-group form-group--submit">
+        <div class="form-submit">
+            
+    <button type="submit" class="btn-primary">
+        <span class="btn-inner">
+            Carregar foto
+        </span>
+    </button>
+    
+        <input type="hidden" value="avatar" name="submit">
+    
+
+            
+        </div>
+    </div>
+
+
+                                
+                            </form>
+                        
+                    </div>
+                </div>
+            </section>

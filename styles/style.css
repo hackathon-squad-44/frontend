@@ -22,6 +22,12 @@
 .navTamanho{
   width: 150px;
 }
+.fotoTamanho{
+  width: 300px;
+}
+.fotoTamanho2{
+  width: 150px;
+}
 .manrope{
   font-family: 'Manrope', sans-serif;
   font-size: 22px;
@@ -69,6 +75,10 @@
 }
 .botaoRoxo {
   background:#880FA3;
+}
+
+.content-form .image-upload-preview {
+  max-width: 100%;
 }
 
 .roxoLetra {
