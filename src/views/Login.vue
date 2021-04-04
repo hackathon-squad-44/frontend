@@ -103,7 +103,10 @@
             <a href="paginaUsuario.html">Login</a>
           </button>
           <p class="teste mt-2 roxoLetra text-center mx-auto">
-            Não possui uma conta? <a href="views\login.html">Criar Conta</a>
+            Não possui uma conta?
+            <router-link to="/cadastrar"
+              ><a href="">Criar Conta</a></router-link
+            >
           </p>
         </div>
       </section>

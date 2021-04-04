@@ -126,7 +126,10 @@
             <a href="formCriarConta.html">Criar Conta</a>
           </button>
           <p class="teste mt-2 roxoLetra mx-auto">
-            Ja possui uma conta? <a href="login.html">Entrar</a>
+            Ja possui uma conta?
+            <router-link to="/login"
+              ><a href="login.html">Entrar</a></router-link
+            >
           </p>
         </div>
       </section>
