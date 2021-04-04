@@ -171,3 +171,9 @@ a:active{
   height: 44px;
   width:300px ;
 }
+
+.botaoAdd{
+  background: none;
+  border: none;
+  width: 24px;
+}
