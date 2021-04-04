@@ -1,0 +1,47 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<div id="item">
+  <input type = "text">
+  <button>buscar</button>
+  <h2>ITENS:</h2>
+  <ul v-for = "i in itens">{{i.product}}
+  <li v-for = "j in i.orders">{{j.orderId}} | quantidade: {{j.quantity}} | recebidos: {{j.received}}
+  <input type = "number" name="quantidade">
+  <button>doar</button>
+  </li> 
+  </ul>
+
+</div>
+
+<script>
+
+
+
+/*const api = "item";
+const http = axios.create({
+        baseURL: "https://squad-44-api.herokuapp.com/",
+    });
+
+function listar(instance, service){
+	return instance.get(service)
+}
+
+let lista = listar(http, api).then(resposta => {
+																		console.log(resposta)
+                                    }
+                                   )
+                                   
+console.log("eita")
+*/
+
+dados = [{"id":1,"category":"Papelaria","product":"Lapis","manufacturer":"","description":"","price":2.0,"orders":[{"id":1,"quantity":2,"received":1,"instant":"2021-04-04T16:23:44.314171","itemId":1,"itemProduct":"Lapis","orderId":1,"donations":[{"id":1,"quantity":1,"instant":"2021-04-04T16:28:06.06452","donatorId":1,"itemId":1}],"completed":false}]},{"id":2,"category":"Papelaria","product":"Caderno","manufacturer":"","description":"","price":8.0,"orders":[{"id":3,"quantity":1,"received":0,"instant":"2021-04-04T16:24:01.29599","itemId":2,"itemProduct":"Caderno","orderId":3,"donations":[],"completed":false},{"id":4,"quantity":3,"received":0,"instant":"2021-04-04T16:24:14.812745","itemId":2,"itemProduct":"Caderno","orderId":4,"donations":[],"completed":false}]},{"id":3,"category":"Livro_Didático","product":"Livro de Fisica","manufacturer":"","description":"","price":22.0,"orders":[]},{"id":4,"category":"Livro_Paradidático","product":"O idiota","manufacturer":"","description":"Autor: Dostoievsky","price":15.0,"orders":[]},{"id":5,"category":"Artes","product":"Bola de treino","manufacturer":"","description":"","price":40.0,"orders":[{"id":5,"quantity":1,"received":0,"instant":"2021-04-04T16:24:31.650468","itemId":5,"itemProduct":"Bola de treino","orderId":1,"donations":[],"completed":false}]},{"id":6,"category":"Papelaria","product":"Estojo","manufacturer":"","description":"","price":8.0,"orders":[{"id":6,"quantity":1,"received":0,"instant":"2021-04-04T16:24:48.546169","itemId":6,"itemProduct":"Estojo","orderId":2,"donations":[],"completed":false}]},{"id":7,"category":"Papelaria","product":"Cola bastão","manufacturer":"","description":"","price":4.9,"orders":[]},{"id":8,"category":"Papelaria","product":"Bola de treino","manufacturer":"","description":"","price":40.0,"orders":[]},{"id":9,"category":"Papelaria","product":"Lápis de cor","manufacturer":"Faber Castell","description":"","price":19.9,"orders":[]},{"id":10,"category":"Papelaria","product":"Canetinha colorida","manufacturer":"Faber Castell","description":"","price":22.7,"orders":[{"id":7,"quantity":1,"received":0,"instant":"2021-04-04T16:24:56.58845","itemId":10,"itemProduct":"Canetinha colorida","orderId":7,"donations":[],"completed":false}]},{"id":11,"category":"Papelaria","product":"Cardeno de desenho","manufacturer":"BIC","description":"","price":19.9,"orders":[]},{"id":12,"category":"Papelaria","product":"Lapiseira","manufacturer":"BIC","description":"","price":19.9,"orders":[]},{"id":13,"category":"Papelaria","product":"Papel almaço","manufacturer":"Allmax","description":"","price":8.25,"orders":[]},{"id":14,"category":"Papelaria","product":"Tesoura sem ponta","manufacturer":"Tramontina","description":"","price":7.89,"orders":[]},{"id":15,"category":"Livro_Didático","product":"Livro de inglês","manufacturer":"","description":"","price":22.0,"orders":[]},{"id":16,"category":"Livro_Didático","product":"Livro de português","manufacturer":"","description":"","price":28.0,"orders":[]},{"id":17,"category":"Livro_Didático","product":"Livro de geografia","manufacturer":"","description":"","price":28.9,"orders":[]},{"id":18,"category":"Papelaria","product":"Compasso","manufacturer":"","description":"","price":15.9,"orders":[]},{"id":19,"category":"Papelaria","product":"Caneta Azul","manufacturer":"BIC","description":"","price":1.99,"orders":[]},{"id":20,"category":"Papelaria","product":"Caneta Preta","manufacturer":"BIC","description":"","price":1.99,"orders":[]},{"id":21,"category":"Papelaria","product":"Giz de cera","manufacturer":"Faber Castell","description":"","price":6.49,"orders":[]}]
+
+new Vue ({
+			el: "#item",
+      data:{
+     		itens: dados.filter(x => x.orders.length > 0)
+      }
+		})
+
+</script>

@@ -1,0 +1,42 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<div id="escola">
+  <input type = "text">
+  <button>buscar por nome</button>
+  <button>buscar por cidade</button>
+  <h2>Escolas:</h2>
+    <div v-for = "i in escolas">{{i.name}}
+      <ul v-for = "j in i.students">
+        <div v-if = "j.itemOrder.length > 0">
+          {{j.name}}
+          <li v-for = "k in j.itemOrder">
+            id: {{k.id}}  -  {{k.itemProduct}}  | quantidade: {{k.quantity}}  | recebidos: {{k.received}}   
+            <input type = "number" name="quantidade">
+            <button>doar</button>
+          </li>
+        </div>
+    </ul> 
+  </div>
+
+</div>
+
+<script>
+
+
+dados = [{"id":1,"name":"escola municipal afonso pena","city":"belo horizonte","address":"av. presidente costa e silva","state":"mg","type":"Municipal",
+			"students":[{"id":2,"name":"Carlos","idade":null,"schoolId":1,"schoolName":"escola municipal afonso pena","parentId":1,"parentName":"nelson","orderId":2,"itemOrder":[{"id":6,"quantity":1,"received":0,"instant":"2021-04-04T16:24:48.546169","itemId":6,"itemProduct":"Estojo","orderId":2,"donations":[],"completed":false}]},
+      				{"id":1,"name":"Antonio","idade":null,"schoolId":1,"schoolName":"escola municipal afonso pena","parentId":1,"parentName":"nelson","orderId":1,"itemOrder":[{"id":5,"quantity":1,"received":0,"instant":"2021-04-04T16:24:31.650468","itemId":5,"itemProduct":"Bola de treino","orderId":1,"donations":[],"completed":false},{"id":1,"quantity":2,"received":1,"instant":"2021-04-04T16:23:44.314171","itemId":1,"itemProduct":"Lapis","orderId":1,"donations":[{"id":1,"quantity":1,"instant":"2021-04-04T16:28:06.06452","donatorId":1,"itemId":1}],"completed":false}]},
+              {"id":3,"name":"Maria","idade":null,"schoolId":1,"schoolName":"escola municipal afonso pena","parentId":2,"parentName":"raissa","orderId":3,"itemOrder":[{"id":3,"quantity":1,"received":0,"instant":"2021-04-04T16:24:01.29599","itemId":2,"itemProduct":"Caderno","orderId":3,"donations":[],"completed":false}]}],"orderId":null,"itemOrder":[]},
+
+
+{"id":2,"name":"escola municipal rubens de souza","city":"sao paulo","address":"rua francisco nascimento","state":"sp","type":"Municipal","students":[{"id":4,"name":"Bruna","idade":null,"schoolId":2,"schoolName":"escola municipal rubens de souza","parentId":3,"parentName":"regina","orderId":4,"itemOrder":[{"id":4,"quantity":3,"received":0,"instant":"2021-04-04T16:24:14.812745","itemId":2,"itemProduct":"Caderno","orderId":4,"donations":[],"completed":false}]}],"orderId":null,"itemOrder":[]},{"id":3,"name":"escola estadual patricia gomes","city":"cotia","address":"av. jose martins oliveira","state":"sp","type":"Estadual","students":[],"orderId":null,"itemOrder":[]},{"id":4,"name":"escola estadual juscelino kubitchek","city":"sao joao del rey","address":"av. rio branco","state":"mg","type":"Estadual","students":[{"id":5,"name":"Talia","idade":null,"schoolId":4,"schoolName":"escola estadual juscelino kubitchek","parentId":5,"parentName":"marcos","orderId":5,"itemOrder":[]}],"orderId":null,"itemOrder":[]},{"id":5,"name":"colegio militar federal","city":"rio de janeiro","address":"rua das garças","state":"rj","type":"Federal","students":[{"id":7,"name":"Mariana","idade":null,"schoolId":5,"schoolName":"colegio militar federal","parentId":5,"parentName":"marcos","orderId":7,"itemOrder":[{"id":7,"quantity":1,"received":0,"instant":"2021-04-04T16:24:56.58845","itemId":10,"itemProduct":"Canetinha colorida","orderId":7,"donations":[],"completed":false}]},{"id":6,"name":"Marina","idade":null,"schoolId":5,"schoolName":"colegio militar federal","parentId":5,"parentName":"marcos","orderId":6,"itemOrder":[]},{"id":8,"name":"Marii","idade":null,"schoolId":5,"schoolName":"colegio militar federal","parentId":6,"parentName":"marcela","orderId":8,"itemOrder":[]},{"id":9,"name":"Mario","idade":null,"schoolId":5,"schoolName":"colegio militar federal","parentId":7,"parentName":"marcelo","orderId":9,"itemOrder":[]}],"orderId":null,"itemOrder":[]},{"id":6,"name":"Escola Municipal Almeida Santos","city":"sao paulo","address":"av. vital brasil","state":"sp","type":"Municipal","students":[],"orderId":null,"itemOrder":[]},{"id":7,"name":"Escola Estadual Marta Souza","city":"sao paulo","address":"av. itamar franco","state":"sp","type":"Estadual","students":[],"orderId":null,"itemOrder":[]},{"id":8,"name":"Escola Estadual Dep. Moreira Coelho","city":"sao paulo","address":"rua Galeao Silvio","state":"sp","type":"Estadual","students":[],"orderId":null,"itemOrder":[]},{"id":9,"name":"Escola Estadual Dep. Rose Gonzalez","city":"sao paulo","address":"Avenida das Araras","state":"sp","type":"Estadual","students":[],"orderId":null,"itemOrder":[]},{"id":10,"name":"Escola Municipal Prof. Lima e Filho","city":"Itu","address":"Rua Rosa e Silva","state":"sp","type":"Municipal","students":[],"orderId":null,"itemOrder":[]}]
+
+new Vue ({
+			el: "#escola",
+      data:{
+     		escolas: dados.filter(x => x.students.length > 0)
+      }
+		})
+</script>
+
