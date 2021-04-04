@@ -1,10 +1,10 @@
-<div class="container">
+  <div class="container">
     <div class="row ">
         <div class="col-6 mx-auto mb-4 mt-5 "> 
             <div class="mx-auto navTamanho">
                 <a class="mx-auto fonteLogo" href="index.html" class="navbar-brand">
                     <p class="fonteLogo setarMargin">Mochila cheia</p>
-                    <img class="logo mx-auto" src="../imgs/logo.svg" alt="Mochila Cheia">
+                    <img class="logo ms-4" src="../imgs/logo.svg" alt="Mochila Cheia">
                   </a>
             </div>
         </div>
@@ -13,11 +13,11 @@
   <div class="container">
       <div class="row">
           <ul class="nav nav-tabs ">
-              <div class="col-3">
-                  <li class="nav-item ">
-                      <a class="nav-link active " aria-current="page" href="index.html">Inicio</a>
-                    </li>
-              </div>
+            <div class="col-3">
+              <li class="nav-item">
+                  <a class="nav-link" href="infos.html">Inicio</a>
+                </li>
+          </div>
               <div class="col-3">
                   <li class="nav-item">
                       <a class="nav-link" href="infos.html">Nossa Causa</a>
@@ -25,14 +25,24 @@
               </div>
               <div class="col-3">
                   <li class="nav-item">
-                      <a class="nav-link" href="infos.html">Contato</a>
+                      <a class="nav-link " href="infos.html">Contato</a>
                   </li>
               </div>
               <div class="col-3">
                 <li class="nav-item px-2 mt-1">
-                  <a class="btn btn-outline-roxo verdeLetra btn-outline-primary ml-md-2 mb-2 px-2" href="login.html">LOGIN</a>
+                  <a class="btn  verdeLetra btn-outline-primary ml-md-2 mb-2 px-2" href="login.html">LOGIN</a>
                 </li>
             </div>
             </ul>
+      </div>
+  </div>
+
+
+
+    <div class=" container-fluid backVerde" >
+      <div class="container">
+          <div class="row">
+              <p class="copy roxoLetra pt-3 mx-auto">© 2021 Mochila Cheia.  Todos os direitos reservados</p>
+          </div>
       </div>
   </div>

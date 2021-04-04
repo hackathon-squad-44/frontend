@@ -56,6 +56,9 @@
 .botaoVerde {
   background-color: #66922a;
 }
+.backVerde{
+  background: #66922a;
+}
 .botaoVerde:hover {
   background-color: #880FA3;
   color: white;
@@ -125,7 +128,10 @@
 .bot{
   width: 180px;
 }
-
+.botao{
+  width: 188px;
+  height: 43px;
+}
 .tamanho{
   width: 440px;
 }
