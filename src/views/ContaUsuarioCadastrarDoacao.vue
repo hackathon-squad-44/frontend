@@ -7,11 +7,13 @@
           <div class="mx-auto navTamanho">
             <a class="mx-auto fonteLogo navbar-brand" href="index.html">
               <p class="fonteLogo setarMargin">Mochila cheia</p>
-              <img
-                class="logo ms-4"
-                src="../assets/imgs/logo.svg"
-                alt="Mochila Cheia"
-              />
+              <router-link to="/">
+                <img
+                  class="logo ms-4"
+                  src="../assets/imgs/logo.svg"
+                  alt="Mochila Cheia"
+                />
+              </router-link>
             </a>
           </div>
         </div>
