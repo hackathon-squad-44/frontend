@@ -1,0 +1,52 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<div id="escola">
+  <input type = "text">
+  <button>buscar por nome</button>
+  <button>buscar por cidade</button>
+  <h2>Escolas:</h2>
+    <div v-for = "i in lista">{{i.name}}>
+      <ul v-for = "j in i.students">
+        <div v-if = "j.itemOrder.length > 0">
+          {{j.name}}
+          <li v-for = "k in j.itemOrder">
+            id: {{k.id}}  -  {{k.itemProduct}}  | quantidade: {{k.quantity}}  | recebidos: {{k.received}}   
+            <input type = "number" name="quantidade">
+            <button>doar</button>
+          </li>
+        </div>
+    </ul> 
+  </div>
+
+</div>
+
+<script>
+const api = "school";
+const http = axios.create({
+        baseURL: "https://squad-44-api.herokuapp.com/",
+    });
+
+
+async function listar(instance, service){
+	const r = await instance.get(service)
+  return r
+}
+
+new Vue ({
+			el: "#escola",
+      data(){
+        return {
+     		lista: []
+        }
+      },
+      mounted(){
+        listar(http, api).then(resposta => {
+          console.log(resposta.data)
+          this.lista = resposta.data.filter(x => x.students.length > 0)
+        })
+      }
+		})
+
+</script>
+
