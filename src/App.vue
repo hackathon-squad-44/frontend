@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
+      <!-- <router-link to="/">Home</router-link> |
 
       <router-link
         v-for="(view, index) in getViews()"
@@ -10,7 +10,7 @@
       >
         {{ view }}
         <span v-if="index !== getViews().length - 1">| |</span>
-      </router-link>
+      </router-link> -->
     </div>
     <router-view />
   </div>

@@ -80,20 +80,24 @@
       </div>
       <ul class="nav nav-pills nav-fill">
         <li class="nav-item">
-          <a
-            class="nav-link active "
-            aria-current="page"
-            href="../views/contaUsuario.html"
-            >Doar</a
+          <router-link to="/estudantelistamateriais">
+            <a class="nav-link active " aria-current="page" href=""
+              >Doar</a
+            ></router-link
           >
         </li>
+
         <li class="nav-item">
           <router-link to="/contausuariocadastrardoacao">
             <a class="nav-link " href="">Cadastrar estudantes</a></router-link
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="../views/contaUsuarioInfo.html">Infos</a>
+          <router-link to="/contausuarioinfo">
+            <a class="nav-link " href="../views/contaUsuarioInfo.html"
+              >Infos</a
+            ></router-link
+          >
         </li>
       </ul>
       <section class="conatiner ">
@@ -122,12 +126,14 @@
         <div
           class=" container-md col-12 mb-3  setarPadding  form-check teste mx-auto "
         >
-          <button
-            type="submit"
-            class="btn botaoVerde botao2 roxoLetra  alinhamentoBotao"
+          <router-link to="/estudantelistamateriais">
+            <button
+              type="submit"
+              class="btn botaoVerde botao2 roxoLetra  alinhamentoBotao"
+            >
+              <a href="">Doar</a>
+            </button></router-link
           >
-            <a href="paginaUsuario.html">Doar</a>
-          </button>
         </div>
       </section>
     </main>
@@ -143,9 +149,7 @@
   </div>
 </template>
 
-<script>
-export default {};
-</script>
+<script></script>
 
 <style>
 .px-2a {

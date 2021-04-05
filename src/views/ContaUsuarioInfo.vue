@@ -24,28 +24,36 @@
       <div class="row">
         <ul class="nav nav-tabs ">
           <div class="col-3">
-            <li class="nav-item">
-              <a class="nav-link" href="infos.html">Inicio</a>
-            </li>
+            <router-link to="/">
+              <li class="nav-item">
+                <a class="nav-link" href="">Inicio</a>
+              </li>
+            </router-link>
           </div>
           <div class="col-3">
-            <li class="nav-item">
-              <a class="nav-link" href="infos.html">Nossa Causa</a>
-            </li>
+            <router-link to="/nossacausa">
+              <li class="nav-item">
+                <a class="nav-link" href="">Nossa Causa</a>
+              </li>
+            </router-link>
           </div>
           <div class="col-3">
-            <li class="nav-item">
-              <a class="nav-link " href="infos.html">Contato</a>
-            </li>
+            <router-link to="/contato">
+              <li class="nav-item">
+                <a class="nav-link " href="">Contato</a>
+              </li>
+            </router-link>
           </div>
           <div class="col-3">
-            <li class="nav-item px-2 mt-1">
-              <a
-                class="btn  verdeLetra btn-outline-primary ml-md-2 mb-2 px-2a"
-                href="login.html"
-                >Sair</a
-              >
-            </li>
+            <router-link to="/login">
+              <li class="nav-item px-2 mt-1">
+                <a
+                  class="btn  verdeLetra btn-outline-primary ml-md-2 mb-2 px-2a"
+                  href=""
+                  >Sair</a
+                >
+              </li>
+            </router-link>
           </div>
         </ul>
       </div>
@@ -76,17 +84,21 @@
         </div>
         <ul class="nav nav-pills nav-fill">
           <li class="nav-item">
-            <a class="nav-link " aria-current="page" href="contaUsuario.html"
-              >Doar</a
+            <router-link to="/contausuario">
+              <a class="nav-link " aria-current="page" href=""
+                >Doar</a
+              ></router-link
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="contaUsuarioCadastrarDoacao.html"
-              >Cadastrar estudantes</a
+            <router-link to="/contausuariocadastrardoacao">
+              <a class="nav-link" href="">Cadastrar estudantes</a></router-link
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="contaUsuarioInfo.html">Infos</a>
+            <router-link to="/contausuarioinfo">
+              <a class="nav-link active" href="">Infos</a>
+            </router-link>
           </li>
         </ul>
       </div>
@@ -142,13 +154,16 @@
                 class=" container-md col-12 mb-3  setarPadding  form-check  mt-5"
               >
                 <p class="teste mt-2 ps-2 roxoLetra setarMargin">
-                  <a href="../views/index.html">Sair da minha conta</a
-                  ><a href="../views/index.html"
-                    ><button
-                      type="button"
-                      class="btn-close ms-2git s"
-                      aria-label="Close"
-                    ></button
+                  <router-link to="/"
+                    ><a href="">Sair da minha conta</a></router-link
+                  >
+                  <a href="../views/index.html">
+                    <router-link to="/">
+                      <button
+                        type="button"
+                        class="btn-close ms-2git s"
+                        aria-label="Close"
+                      ></button> </router-link
                   ></a>
                 </p>
               </div>

@@ -23,26 +23,34 @@
         <ul class="nav nav-tabs ">
           <div class="col-3">
             <li class="nav-item">
-              <a class="nav-link" href="infos.html">Inicio</a>
+              <router-link to="/">
+                <a class="nav-link" href="">Inicio</a>
+              </router-link>
             </li>
           </div>
           <div class="col-3">
             <li class="nav-item">
-              <a class="nav-link" href="infos.html">Nossa Causa</a>
+              <router-link to="/nossacausa">
+                <a class="nav-link" href="">Nossa Causa</a>
+              </router-link>
             </li>
           </div>
           <div class="col-3">
             <li class="nav-item">
-              <a class="nav-link " href="infos.html">Contato</a>
+              <router-link to="/contato">
+                <a class="nav-link " href="">Contato</a>
+              </router-link>
             </li>
           </div>
           <div class="col-3">
             <li class="nav-item px-2 mt-1">
-              <a
-                class="btn  verdeLetra btn-outline-primary ml-md-2 mb-2 px-2a"
-                href="login.html"
-                >LOGIN</a
-              >
+              <router-link to="/login">
+                <a
+                  class="btn  verdeLetra btn-outline-primary ml-md-2 mb-2 px-2a"
+                  href=""
+                  >LOGIN</a
+                >
+              </router-link>
             </li>
           </div>
         </ul>

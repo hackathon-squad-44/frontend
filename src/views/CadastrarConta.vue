@@ -22,9 +22,11 @@
       <div class="row">
         <ul class="nav nav-tabs ">
           <div class="col-3">
-            <li class="nav-item">
-              <a class="nav-link" href="">Inicio</a>
-            </li>
+            <router-link to="/">
+              <li class="nav-item">
+                <a class="nav-link" href="">Inicio</a>
+              </li>
+            </router-link>
           </div>
           <div class="col-3">
             <router-link to="/nossacausa">
