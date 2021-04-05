@@ -82,8 +82,8 @@
             <div class="col-md-6 position-relative mt-3 mx-auto">
               <label for="validationTooltip02" class="form-label roxoLetra mx-2">Selecione a Escola</label>                          
               <select class="form-control" v-model = "student.schoolId">
-                <option v-for="item in items" :value="item.id" :key="item.id">
-                {{ item.name }}
+                <option v-for="school in schools" :value="school.id" :key="school.id">
+                {{ school.name }}
                 </option>
               </select>            
             </div>
@@ -160,12 +160,12 @@
             </div>
           </div>
         </div>
-      </section>    
-      {{this.studentFind.itemOrder}}                   
+      </section>          
+
       <div class="col-md col-12 mt-5 mx-auto tamanho2">
         <div class="col-6 tamanho2  ">
           <table class="table table-striped table-bordered border-success  mx-auto">
-            <thead class="col-6">
+            <thead class="col-9">
               <tr>
                 <th class="text-warning" scope="col">#</th>
                 <th class="text-warning" scope="col">Material</th>
@@ -181,7 +181,7 @@
             </tbody>
           </table>          
         </div>
-      </div>
+      </div>   
     </div>
 
     </main><br><br>
@@ -210,7 +210,7 @@ export default {
         schoolId: '',
         parentId: VueCookies.get('user').parentId
       },
-      items: {         
+      schools: {         
       },
       studentFind: {
         name: '',
@@ -221,15 +221,13 @@ export default {
   }, 
   mounted() {
     School.listar().then(school => {
-      this.items = school.data;      
+      this.schools = school.data;      
     });
     if(this.$route.query.student){
       Student.getById(this.$route.query.student).then(student => {      
         this.studentFind.name = student.data.name
         this.studentFind.schoolName = student.data.schoolName      
-        student.data.itemOrder.forEach(element => {
-          this.studentFind.itemOrder = element             
-        });              
+        this.studentFind.itemOrder = student.data.itemOrder        
       })
     }    
   },
