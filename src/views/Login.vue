@@ -35,7 +35,9 @@
           </div>
           <div class="col-4">
             <li class="nav-item">
-              <a class="nav-link " href="">Contato</a>
+              <router-link to="/contato">
+                <a class="nav-link " href="">Contato</a></router-link
+              >
             </li>
           </div>
         </ul>
@@ -98,11 +100,11 @@
             type="submit"
             class="btn botaoVerde botao2 roxoLetra  alinhamentoBotao"
           >
-            <a href="paginaUsuario.html">Login</a>
+            <router-link to="/contausuario"><a href="">Login</a></router-link>
           </button>
           <p class="teste mt-2 roxoLetra text-center mx-auto">
             Não possui uma conta?
-            <router-link to="/cadastrar"
+            <router-link to="/cadastrarconta"
               ><a href="">Criar Conta</a></router-link
             >
           </p>

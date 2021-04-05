@@ -22,7 +22,9 @@
         <ul class="nav nav-tabs ">
           <div class="col-3">
             <li class="nav-item">
-              <a class="nav-link" href="">Inicio</a>
+              <router-link to="/">
+                <a class="nav-link" href="">Inicio</a></router-link
+              >
             </li>
           </div>
           <div class="col-3">
