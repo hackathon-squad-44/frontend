@@ -48,11 +48,15 @@
     <main>
       <section class="container-sm col-12">
         <div class="row ">
-          <form class=" container-md col-12 mb-3  mx-auto ">
+          <form
+            class=" container-md col-12 mb-3  mx-auto "
+            @submit.prevent="autorizar"
+          >
+
             <div class="container-md col-12 mb-3 pt-5 mx-auto ">
               <div class="teste mx-auto">
                 <label for="exampleInputEmail1" class="form-label roxoLetra"
-                  >E-mail {{login.email}}</label
+                  >E-mail {{ user.email }}</label
                 >
               </div>
               <input
@@ -60,7 +64,7 @@
                 class="form-control inputInfo  mx-auto"
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
-                v.model = "login.email"
+                v.model="user.email"
               />
               <div id="emailHelp" class="form-text teste  mx-auto">
                 Nunca compartilhe suas informações pessoais.
@@ -76,29 +80,19 @@
               id="inputPassword5"
               class="form-control inputInfo mx-auto"
               aria-describedby="passwordHelpBlock"
-              v-model = "login.password"
+              v-model="user.password"
             />
 
-
-
-
-
-
-
-
-
-          
             <div id="passwordHelpBlock" class="form-text teste mx-auto ">
               <div class="container-md col-12 mb-3 pt-3 mx-auto form-check">
-
-                      <button
-            type="submit"
-            class="btn botaoVerde botao2 roxoLetra  alinhamentoBotao"
-          >
-            <router-link to="/contausuario"><a href="">Login</a></router-link>
-          </button>
-
-
+                <button
+                  type="submit"
+                  class="btn botaoVerde botao2 roxoLetra  alinhamentoBotao"
+                >
+                  <router-link to="/contausuario"
+                    ><a href="">Login</a></router-link
+                  >
+                </button>
               </div>
             </div>
           </form>
@@ -130,27 +124,40 @@
 </template>
 
 <script>
+/*
 import User from "../service/user";
-
+*/
 export default {
   data() {
     return {
-      login: {
+      user: {
+        address: "",
+        cep: "",
+        city: "",
+        cpf: "",
+        district: "",
         email: "",
-        password: ""
+        name: "",
+        number: "",
+        password: "",
+        phone: "",
+        state: "",
       },
     };
   },
   methods: {
     autorizar() {
-      User.autorizar(this.login).then((resposta) => {
+      /*
+      User.autorizar(this.user).then((resposta) => {
         console.log(resposta);
+
       });
+            */
+      alert(this.user.email)
     },
   },
 };
 </script>
-
 
 <style>
 .nav1 {

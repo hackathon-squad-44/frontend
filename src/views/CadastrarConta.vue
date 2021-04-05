@@ -71,6 +71,7 @@
         <div class="row ">
           <form
             class=" container-md col-12 mb-3  mx-auto "
+            v-if = "!hasAccount"
             @submit.prevent="salvar"
           >
             <div class="container-md col-12 mb-3 pt-3 mx-auto ">
@@ -87,10 +88,7 @@
                 v-model="user.name"
               />
 
-
-
-
-<div class="teste mx-auto">
+              <div class="teste mx-auto">
                 <label for="exampleInputEmail1" class="form-label roxoLetra"
                   >CPF</label
                 >
@@ -102,11 +100,6 @@
                 aria-describedby="emailHelp"
                 v-model="user.cpf"
               />
-
-
-
-
-
 
               <div class="container-md col-12 mb-3 pt-3 mx-auto ">
                 <div class="teste mx-auto">
@@ -158,18 +151,103 @@
               </button>
             </div>
           </form>
+
+
+                    <form
+            class=" container-md col-12 mb-3  mx-auto "
+            v-if = "hasAccount"
+            @submit.prevent="autorizar"
+          >
+            <div class="container-md col-12 mb-3 pt-3 mx-auto ">
+
+
+
+              <div class="container-md col-12 mb-3 pt-3 mx-auto ">
+                <div class="teste mx-auto">
+                  <label for="exampleInputEmail1" class="form-label roxoLetra"
+                    >Email {{user.email}}</label
+                  >
+                </div>
+                <input
+                  type="text"
+                  class="form-control inputInfo  mx-auto"
+                  id="inputEmail"
+                  aria-describedby="emailHelp"
+                  v-model="user.email"
+                />
+
+              </div>
+              <div class="container-md col-12 mb-3 mx-auto ">
+                <div class="teste mx-auto">
+                  <label for="exampleInputEmail1" class="form-label roxoLetra"
+                    >Senha</label
+                  >
+                </div>
+                <input
+                  type="password"
+                  id="inputPassword5"
+                  class="form-control inputInfo mx-auto"
+                  aria-describedby="passwordHelpBlock"
+                  v-model="user.password"
+                />
+
+                <div id="passwordHelpBlock" class="form-text alinhamento"></div>
+              </div>
+            </div>
+            <div
+              class=" container-md col-12 mb-3  setarPadding  form-check teste mx-auto "
+            >
+              <button
+                type="submit"
+                class="btn botaoVerde botao2  alinhamentoBotao"
+              >
+                <router-link to="/contausuariocadastrardoacao"
+                  ><a href="">Login</a></router-link
+                >
+              </button>
+            </div>
+          </form>
+
+
+
+
+
         </div>
       </section>
       <section class="container-sm col-6">
         <div
           class=" container-md col-12 mb-3  setarPadding  form-check teste mx-auto "
         >
+        <form
+        v-if= "!hasAccount"
+        @submit.prevent= "flip">
           <p class="teste mt-2 roxoLetra mx-auto">
             Ja possui uma conta?
-            <router-link to="/login"
-              ><a href="login.html">Entrar</a></router-link
-            >
           </p>
+          
+                        <button
+                type="submit"
+                class="btn botaoVerde botao2  alinhamentoBotao"
+                @submit.prevent="salvar"
+              >
+              faça login
+              </button>
+        </form>
+                <form
+        v-if= "hasAccount"
+        @submit.prevent= "flip">
+          <p class="teste mt-2 roxoLetra mx-auto">
+            Ainda não possui uma conta?
+          </p>
+          
+                        <button
+                type="submit"
+                class="btn botaoVerde botao2  alinhamentoBotao"
+                @submit.prevent="salvar"
+              >
+              cadastre-se
+              </button>
+        </form>
         </div>
       </section>
     </main>
@@ -191,6 +269,7 @@ import User from "../service/user";
 export default {
   data() {
     return {
+      hasAccount: true,  
       user: {
         address: "",
         cep: "",
@@ -208,10 +287,23 @@ export default {
   },
   methods: {
     salvar() {
+
       User.salvar(this.user).then((resposta) => {
         console.log(resposta);
+
       });
     },
+    autorizar() {
+      
+      User.autorizar(this.user).then((resposta) => {
+        console.log(resposta);
+
+      });
+
+    },
+    flip(){
+      this.hasAccount = !this.hasAccount
+    }
   },
 };
 </script>
