@@ -67,7 +67,7 @@
         </div>
       </section>
       
-      <section class="container-sm col-12">
+      <section class="container-sm col-12" v-if=!this.$route.query.student>
         <form class="row" @submit.prevent = "salvar">
           <div class="mx-auto setarPadding">
             <div class="col-md-6 position-relative mt-2 mx-auto">
@@ -81,26 +81,16 @@
             </div>
             <div class="col-md-6 position-relative mt-3 mx-auto">
               <label for="validationTooltip02" class="form-label roxoLetra mx-2">Selecione a Escola</label>                          
-              <select class="form-control" v-model = "schoolId">
+              <select class="form-control" v-model = "student.schoolId">
                 <option v-for="item in items" :value="item.id" :key="item.id">
                 {{ item.name }}
                 </option>
               </select>            
             </div>
-          </div>
-          <div class="mx-auto setarPadding">
-            <div class="col-md-6 position-relative mt-2 mx-auto">
-              <label for="validationTooltip01" class="form-label roxoLetra mx-2">Confirme seu email</label>
-              <input
-                type="text"
-                class="form-control verdeLetra"
-                id="inputName"                
-                v-model="student.name"
-                required/>
-            </div>
-          </div>
+          </div>          
           {{student.name}}
-          {{schoolId}}
+          {{schoolId}}          
+          
           <section class="col-md-6 position-relative mt-3 mx-auto">
             <div class="row row-cols-2 ">
               <div class="col bot setarPadding  mx-auto">
@@ -111,10 +101,25 @@
                 </button>
               </div>
             </div>
-          </section>
+          </section>          
         </form>
       </section>
-      <!--
+
+      <section v-if=this.$route.query.student>
+        <div class="mx-auto setarPadding">
+            <div class="col-md-6 position-relative mt-2 mx-auto">
+              <h4>{{studentFind.name}}</h4>
+            </div>
+        </div>
+        <div class="mx-auto setarPadding">
+            <div class="col-md-6 position-relative mt-2 mx-auto">
+              <h4>{{studentFind.schoolName}}</h4>
+            </div>
+        </div>
+      </section>
+      
+
+    <div v-if=this.$route.query.student>
       <section>
         <div class="container tamanho">
           <div class="col-md-6 position-relative mt-3 mx-auto">
@@ -190,7 +195,8 @@
           </table>
         </div>
       </div>
-      -->
+    </div>
+
     </main><br><br>
     <div class=" container-fluid backVerde">
       <div class="container">
@@ -214,26 +220,39 @@ export default {
   data() {
     return {
       student: {
-        name: '',
-        age: '',
+        name: '',       
         schoolId: '',
-        parentId: ''
+        parentId: 1
       },
       items: {         
+      },
+      studentFind: {
+        name: '',
+        schoolName: '',
+        itemOrder: {}
       }
     }
   }, 
   mounted() {
     School.listar().then(school => {
-      this.items = school.data;
-      console.log(school);
+      this.items = school.data;      
     });
+    Student.getById(this.$route.query.student).then(student => {
+      console.log(student);
+      this.studentFind.name = student.data.name
+      this.studentFind.schoolName = student.data.schoolName
+      student.data.itemOrder.forEach(element => {
+        this.itemOrder = element.data
+      });
+    })
   },
   methods: {
     salvar() {
-      Student.salvar(this.student).then(resposta => {
-        alert("salvo com sucesso")
-      })
+      Student.salvar(this.student).then(resposta,erro => {
+        if(resposta) {
+
+        }  
+      })           
     }
   }
 }
