@@ -16,6 +16,7 @@
         </div>
       </div>
     </div>
+    <!-- NavBar -->
     <div class="container">
       <div class="row">
         <ul class="nav nav-tabs ">
@@ -25,33 +26,33 @@
             </li>
           </div>
           <div class="col-3">
-            <li class="nav-item">
-              <router-link to="/nossacausa">
-                <a class="nav-link" href="">Nossa Causa</a></router-link
-              >
-            </li>
+            <router-link to="/nossacausa">
+              <li class="nav-item">
+                <a class="nav-link" href="">Nossa Causa</a>
+              </li>
+            </router-link>
           </div>
           <div class="col-3">
-            <li class="nav-item">
-              <router-link to="/contato">
-                <a class="nav-link" href="">Contato</a></router-link
-              >
-            </li>
+            <router-link to="/contato">
+              <li class="nav-item"></li>
+              <a class="nav-link" href="">Contato</a></router-link
+            >
           </div>
           <div class="col-3">
-            <li class="nav-item px-2 mt-1">
-              <router-link to="/login"
-                ><a
+            <router-link to="/login">
+              <li class="nav-item px-2 mt-1">
+                <a
                   class="btn verdeLetra btn-outline-primary ml-md-2 mb-2 px-2a"
                   href="/login.vue"
                   >LOGIN</a
-                ></router-link
-              >
-            </li>
+                >
+              </li>
+            </router-link>
           </div>
         </ul>
       </div>
     </div>
+    <!-- NavBar -->
     <main>
       <section class="conatiner ">
         <div class="row">

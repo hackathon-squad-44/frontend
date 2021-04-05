@@ -16,36 +16,43 @@
         </div>
       </div>
     </div>
+    <!-- NavBar -->
     <div class="container">
       <div class="row">
         <ul class="nav nav-tabs ">
           <div class="col-3">
             <li class="nav-item">
-              <a class="nav-link" href="infos.html">Inicio</a>
+              <a class="nav-link" href="">Inicio</a>
             </li>
           </div>
           <div class="col-3">
-            <li class="nav-item">
-              <a class="nav-link" href="infos.html">Nossa Causa</a>
-            </li>
+            <router-link to="/nossacausa">
+              <li class="nav-item">
+                <a class="nav-link" href="">Nossa Causa</a>
+              </li>
+            </router-link>
           </div>
           <div class="col-3">
-            <li class="nav-item">
-              <a class="nav-link " href="infos.html">Contato</a>
-            </li>
+            <router-link to="/contato">
+              <li class="nav-item"></li>
+              <a class="nav-link" href="">Contato</a></router-link
+            >
           </div>
           <div class="col-3">
-            <li class="nav-item px-2 mt-1">
-              <a
-                class="btn  verdeLetra btn-outline-primary ml-md-2 mb-2 px-2"
-                href="login.html"
-                >LOGIN</a
-              >
-            </li>
+            <router-link to="/login">
+              <li class="nav-item px-2 mt-1">
+                <a
+                  class="btn verdeLetra btn-outline-primary ml-md-2 mb-2 px-2a"
+                  href="/login.vue"
+                  >LOGIN</a
+                >
+              </li>
+            </router-link>
           </div>
         </ul>
       </div>
     </div>
+    <!-- NavBar -->
     <main>
       <section class="container-sm col-12 ">
         <div class="row">

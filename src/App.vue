@@ -9,7 +9,7 @@
         :to="`/${view.toLowerCase()}`"
       >
         {{ view }}
-        <span v-if="index !== getViews().length - 1"> | </span>
+        <span v-if="index !== getViews().length - 1">| |</span>
       </router-link>
     </div>
     <router-view />

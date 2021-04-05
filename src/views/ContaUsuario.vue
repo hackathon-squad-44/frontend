@@ -35,7 +35,7 @@
           <div class="col-3">
             <li class="nav-item px-2 mt-1">
               <a
-                class="btn  verdeLetra btn-outline-primary ml-md-2 mb-2 px-2"
+                class="btn  verdeLetra btn-outline-primary ml-md-2 mb-2 px-2a"
                 href="login.html"
                 >Sair</a
               >
@@ -137,4 +137,9 @@
 export default {};
 </script>
 
-<style></style>
+<style>
+.px-2a {
+  padding-right: 4.5rem !important;
+  padding-left: 3.5rem !important;
+}
+</style>
