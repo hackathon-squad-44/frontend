@@ -72,8 +72,10 @@
         </div>
         <ul class="nav nav-pills nav-fill">
           <li class="nav-item">
-            <a class="nav-link " aria-current="page" href="contaUsuario.html"
-              >Doar</a
+            <router-link to="/contausuario"
+              ><a class="nav-link " aria-current="page" href=""
+                >Doar</a
+              ></router-link
             >
           </li>
           <li class="nav-item">
@@ -82,7 +84,9 @@
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="contaUsuarioInfo.html">Infos</a>
+            <router-link to="/contausuarioinfo"
+              ><a class="nav-link " href="">Infos</a></router-link
+            >
           </li>
         </ul>
         <section class="conatiner ">

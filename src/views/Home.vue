@@ -43,7 +43,7 @@
               <li class="nav-item px-2 mt-1">
                 <a
                   class="btn verdeLetra btn-outline-primary ml-md-2 mb-2 px-2a"
-                  href="/login.vue"
+                  href=""
                   >LOGIN</a
                 >
               </li>
@@ -91,7 +91,9 @@
       <section class="conatiner col-6 mx-auto pt-5 pb-5 ">
         <div class="d-grid gap-2 col-6 mx-auto">
           <button class="btn botao  botaoVerde mx-auto" type="button">
-            <router-link to="/criar"> <a href="">Criar Conta</a></router-link>
+            <router-link to="/cadastrarconta">
+              <a href="">Criar Conta</a></router-link
+            >
           </button>
         </div>
       </section>

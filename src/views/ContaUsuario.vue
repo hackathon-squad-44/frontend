@@ -18,28 +18,36 @@
       <div class="row">
         <ul class="nav nav-tabs ">
           <div class="col-3">
-            <li class="nav-item">
-              <a class="nav-link" href="infos.html">Inicio</a>
-            </li>
+            <router-link to="/">
+              <li class="nav-item">
+                <a class="nav-link" href="">Inicio</a>
+              </li>
+            </router-link>
           </div>
           <div class="col-3">
-            <li class="nav-item">
-              <a class="nav-link" href="infos.html">Nossa Causa</a>
-            </li>
+            <router-link to="/nossacausa">
+              <li class="nav-item">
+                <a class="nav-link" href="">Nossa Causa</a>
+              </li>
+            </router-link>
           </div>
           <div class="col-3">
-            <li class="nav-item">
-              <a class="nav-link " href="infos.html">Contato</a>
-            </li>
+            <router-link to="contato">
+              <li class="nav-item">
+                <a class="nav-link " href="">Contato</a>
+              </li>
+            </router-link>
           </div>
           <div class="col-3">
-            <li class="nav-item px-2 mt-1">
-              <a
-                class="btn  verdeLetra btn-outline-primary ml-md-2 mb-2 px-2a"
-                href="login.html"
-                >Sair</a
-              >
-            </li>
+            <router-link to="/">
+              <li class="nav-item px-2 mt-1">
+                <a
+                  class="btn  verdeLetra btn-outline-primary ml-md-2 mb-2 px-2a"
+                  href=""
+                  >Sair</a
+                >
+              </li>
+            </router-link>
           </div>
         </ul>
       </div>
@@ -78,8 +86,8 @@
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="../views/contaUsuarioCadastrarDoacao.html"
-            >Cadastrar estudantes</a
+          <router-link to="/contausuariocadastrardoacao">
+            <a class="nav-link " href="">Cadastrar estudantes</a></router-link
           >
         </li>
         <li class="nav-item">

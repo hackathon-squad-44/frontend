@@ -130,7 +130,9 @@
           class=" container-md col-12 mb-3  setarPadding  form-check teste mx-auto "
         >
           <button type="submit" class="btn botaoVerde botao2  alinhamentoBotao">
-            <a href="formCriarConta.html">Criar Conta</a>
+            <router-link to="/contausuariocadastrardoacao"
+              ><a href="">Criar Conta</a></router-link
+            >
           </button>
           <p class="teste mt-2 roxoLetra mx-auto">
             Ja possui uma conta?
