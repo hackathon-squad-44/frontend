@@ -87,9 +87,7 @@
                 </option>
               </select>            
             </div>
-          </div>          
-          {{student.name}}
-          {{schoolId}}          
+          </div>                    
           
           <section class="col-md-6 position-relative mt-3 mx-auto">
             <div class="row row-cols-2 ">
@@ -156,19 +154,27 @@
             <div class="col bot setarPadding  mx-auto">
               <button
                 type="submit"
-                class="btn botaoVerde botaoEstudante mt-3 mx-2 col-6 alinhamentoBotao"
-              >
+                class="btn botaoVerde botaoEstudante mt-3 mx-2 col-6 alinhamentoBotao">
                 <a href="">Adicionar</a>
               </button>
             </div>
           </div>
         </div>
-      </section>      
+      </section> 
+      <p>{{studentFind.itemOrder}}     
+        
+        <div class="course-list-row">
+          <tr v-for="item in studentFind.itemOrder" :key="item.id">
+              <td>{{ item.itemId}}</td>
+              <td>{{ course.AuthorId }}</td>
+              <td>{{ course.Title }}</td>
+              <td>{{ course.CourseLength }}</td>
+              <td>{{ course.Category }}</td>
+          </tr>
+        </div>
       <div class="col-md col-6 mt-5 mx-auto tamanho2">
         <div class="col-6 tamanho2  ">
-          <table
-            class="table table-striped table-bordered border-success  mx-auto"
-          >
+          <table class="table table-striped table-bordered border-success  mx-auto">
             <thead class="col-6">
               <tr>
                 <th class="text-warning" scope="col">#</th>
@@ -213,8 +219,7 @@
 <script>
 import Student from '../service/student'
 import School from '../service/school';
-
-
+import VueCookies from 'vue-cookies'
 
 export default {  
   data() {
@@ -222,7 +227,7 @@ export default {
       student: {
         name: '',       
         schoolId: '',
-        parentId: 1
+        parentId: ''
       },
       items: {         
       },
@@ -234,25 +239,29 @@ export default {
     }
   }, 
   mounted() {
+    console.log(VueCookies.get('user').data.parentId)
     School.listar().then(school => {
       this.items = school.data;      
     });
-    Student.getById(this.$route.query.student).then(student => {
-      console.log(student);
+    Student.getById(this.$route.query.student).then(student => {      
       this.studentFind.name = student.data.name
       this.studentFind.schoolName = student.data.schoolName
+      
       student.data.itemOrder.forEach(element => {
-        this.itemOrder = element.data
-      });
+        this.studentFind.itemOrder = element   
+        //console.log(element)     
+      });      
+      //console.log(VueCookies.get('user'));
     })
   },
   methods: {
     salvar() {
-      Student.salvar(this.student).then(resposta,erro => {
-        if(resposta) {
 
-        }  
-      })           
+      /*
+      Student.salvar(this.student).then(resposta,erro => {
+          
+      })
+      */           
     }
   }
 }
