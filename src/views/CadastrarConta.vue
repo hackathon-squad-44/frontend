@@ -69,7 +69,10 @@
 
       <section class="container-sm col-12">
         <div class="row ">
-          <form class=" container-md col-12 mb-3  mx-auto " @submit.prevent = "salvar">
+          <form
+            class=" container-md col-12 mb-3  mx-auto "
+            @submit.prevent="salvar"
+          >
             <div class="container-md col-12 mb-3 pt-3 mx-auto ">
               <div class="teste mx-auto">
                 <label for="exampleInputEmail1" class="form-label roxoLetra"
@@ -83,53 +86,77 @@
                 aria-describedby="emailHelp"
                 v-model="user.name"
               />
-                          <div class="container-md col-12 mb-3 pt-3 mx-auto ">
-              <div class="teste mx-auto">
+
+
+
+
+<div class="teste mx-auto">
                 <label for="exampleInputEmail1" class="form-label roxoLetra"
-                  >Email</label
+                  >CPF</label
                 >
               </div>
               <input
                 type="text"
                 class="form-control inputInfo  mx-auto"
-                id="inputEmail"
+                id="inputCpf"
                 aria-describedby="emailHelp"
-                v-model="user.email"
+                v-model="user.cpf"
               />
-              <div id="emailHelp" class="form-text teste  mx-auto">
-                Nunca compartilhe suas informações pessoais.
-              </div>
-            </div>
-            <div class="container-md col-12 mb-3 mx-auto ">
-              <div class="teste mx-auto">
-                <label for="exampleInputEmail1" class="form-label roxoLetra"
-                  >Senha</label
-                >
-              </div>
-              <input
-                type="password"
-                id="inputPassword5"
-                class="form-control inputInfo mx-auto"
-                aria-describedby="passwordHelpBlock"
-                v-model = "user.password"
-              />
-              <div id="passwordHelpBlock" class="form-text teste mx-auto ">
-                Conter de 8 a 20 caracteres, letras, números e caracteres
-                especiais.Não podendo conter espaços ou emojis.
-              </div>
-                <div id="passwordHelpBlock" class="form-text alinhamento"></div>
 
+
+
+
+
+
+              <div class="container-md col-12 mb-3 pt-3 mx-auto ">
+                <div class="teste mx-auto">
+                  <label for="exampleInputEmail1" class="form-label roxoLetra"
+                    >Email</label
+                  >
+                </div>
+                <input
+                  type="text"
+                  class="form-control inputInfo  mx-auto"
+                  id="inputEmail"
+                  aria-describedby="emailHelp"
+                  v-model="user.email"
+                />
+                <div id="emailHelp" class="form-text teste  mx-auto">
+                  Nunca compartilhe suas informações pessoais.
+                </div>
+              </div>
+              <div class="container-md col-12 mb-3 mx-auto ">
+                <div class="teste mx-auto">
+                  <label for="exampleInputEmail1" class="form-label roxoLetra"
+                    >Senha</label
+                  >
+                </div>
+                <input
+                  type="password"
+                  id="inputPassword5"
+                  class="form-control inputInfo mx-auto"
+                  aria-describedby="passwordHelpBlock"
+                  v-model="user.password"
+                />
+                <div id="passwordHelpBlock" class="form-text teste mx-auto ">
+                  Conter de 8 a 20 caracteres, letras, números e caracteres
+                  especiais.Não podendo conter espaços ou emojis.
+                </div>
+                <div id="passwordHelpBlock" class="form-text alinhamento"></div>
               </div>
             </div>
-                    <div
-          class=" container-md col-12 mb-3  setarPadding  form-check teste mx-auto "
-        >
-            <button type="submit" class="btn botaoVerde botao2  alinhamentoBotao">
-            <router-link to="/contausuariocadastrardoacao"
-              ><a href="">Criar Conta</a></router-link
+            <div
+              class=" container-md col-12 mb-3  setarPadding  form-check teste mx-auto "
             >
-          </button>
-                    </div>
+              <button
+                type="submit"
+                class="btn botaoVerde botao2  alinhamentoBotao"
+              >
+                <router-link to="/contausuariocadastrardoacao"
+                  ><a href="">Criar Conta</a></router-link
+                >
+              </button>
+            </div>
           </form>
         </div>
       </section>
@@ -159,34 +186,33 @@
 </template>
 
 <script>
-import User from '../service/user'
+import User from "../service/user";
 
 export default {
-  data(){
+  data() {
     return {
       user: {
-        address: '',
-        cep: '',
-        city: '',
-        cpf: '',
-        district: '',
-        email: '',
-        name: '',
-        number: '',
-        password: '',
-        phone: '',
-        state: ''
-      }
-    }
+        address: "",
+        cep: "",
+        city: "",
+        cpf: "",
+        district: "",
+        email: "",
+        name: "",
+        number: "",
+        password: "",
+        phone: "",
+        state: "",
+      },
+    };
   },
   methods: {
     salvar() {
-      User.salvar(this.user).then(resposta => {
-        alert("salvo com sucesso")
-      })
-    }
-  }
-
+      User.salvar(this.user).then((resposta) => {
+        console.log(resposta);
+      });
+    },
+  },
 };
 </script>
 
