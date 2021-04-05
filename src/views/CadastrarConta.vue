@@ -57,7 +57,7 @@
     </div>
     <!-- NavBar -->
     <main>
-      <div v-if = "isLogedIn">
+      <div v-if = "!isLogedIn">
       <section class="container-sm col-12 ">
         <div class="row">
           <div class=" container-md col-12  pt-4 setarMargin ">
@@ -238,7 +238,7 @@
         </div>
       </section>
       </div>
-      <div v-if = "!isLogedIn">
+      <div v-if = "isLogedIn">
 
         <p>Você já está logado</p>
                         <button
@@ -319,6 +319,7 @@ export default {
     getLogedIn(){
         if (VueCookies.get('user'))
         {
+          console.log(VueCookies.get('user'))
           this.isLogedIn = true
         }
     }
