@@ -76,11 +76,6 @@
             class="col-6 btn fotoTamanho2 botaoVerde text-white"
             id=""
           />
-          <label
-            class="input-group-text fotoTamanho2 botaoVerde text-white"
-            for=""
-            >Carregar foto</label
-          >
         </div>
         <ul class="nav nav-pills nav-fill">
           <li class="nav-item">

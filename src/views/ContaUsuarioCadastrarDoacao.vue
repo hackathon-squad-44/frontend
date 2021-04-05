@@ -24,26 +24,34 @@
         <ul class="nav nav-tabs ">
           <div class="col-3">
             <li class="nav-item">
-              <a class="nav-link" href="infos.html">Inicio</a>
+              <router-link to="/">
+                <a class="nav-link" href="">Inicio</a>
+              </router-link>
             </li>
           </div>
           <div class="col-3">
             <li class="nav-item">
-              <a class="nav-link" href="infos.html">Nossa Causa</a>
+              <router-link to="/nossacausa">
+                <a class="nav-link" href="">Nossa Causa</a>
+              </router-link>
             </li>
           </div>
           <div class="col-3">
             <li class="nav-item">
-              <a class="nav-link " href="infos.html">Contato</a>
+              <router-link to="/contato">
+                <a class="nav-link " href="">Contato</a>
+              </router-link>
             </li>
           </div>
           <div class="col-3">
             <li class="nav-item px-2 mt-1">
-              <a
-                class="btn  verdeLetra btn-outline-primary ml-md-2 mb-2 px-2a"
-                href="login.html"
-                >Sair</a
-              >
+              <router-link to="/">
+                <a
+                  class="btn  verdeLetra btn-outline-primary ml-md-2 mb-2 px-2a"
+                  href=""
+                  >Sair</a
+                >
+              </router-link>
             </li>
           </div>
         </ul>
@@ -66,11 +74,6 @@
             class="col-6 btn fotoTamanho2 botaoVerde text-white"
             id=""
           />
-          <label
-            class="input-group-text fotoTamanho2 botaoVerde text-white"
-            for=""
-            >Carregar foto</label
-          >
         </div>
         <ul class="nav nav-pills nav-fill">
           <li class="nav-item">
