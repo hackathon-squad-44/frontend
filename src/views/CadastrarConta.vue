@@ -159,7 +159,33 @@
 </template>
 
 <script>
-export default {};
+const api = "user";
+const http = axios.create({
+        baseURL: "https://squad-44-api.herokuapp.com/",
+    });
+
+export default {
+  data(){
+    return {
+      user: {
+        address: '',
+        cep: '',
+        city: '',
+        cpf: '',
+        district: '',
+        email: '',
+        name: '',
+        number: '',
+        password: '',
+        phone: '',
+        state: ''
+      }
+    }
+  },
+  methods() {
+  }
+
+};
 </script>
 
 <style></style>
