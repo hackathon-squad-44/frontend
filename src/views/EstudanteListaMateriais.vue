@@ -235,13 +235,13 @@ export default {
     })
   },
   methods: {
-    salvar() {
-
-      /*
+    salvar() {/*
       Student.salvar(this.student).then(resposta,erro => {
-          
-      })
-      */           
+        if(resposta) {
+            console.log(resposta)
+            console.log(erro)
+        }  
+      }) */          
     }
   }
 }
