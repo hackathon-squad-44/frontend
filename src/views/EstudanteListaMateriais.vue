@@ -232,7 +232,7 @@ export default {
   methods: {
     salvar() {
       Student.salvar(this.student).then(resposta => {
-        alert("salvo com sucesso")
+        console.log(resposta)
       })
     }
   }
