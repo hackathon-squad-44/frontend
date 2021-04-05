@@ -160,7 +160,8 @@
             </div>
           </div>
         </div>
-      </section>                       
+      </section>    
+      {{this.studentFind.itemOrder}}                   
       <div class="col-md col-12 mt-5 mx-auto tamanho2">
         <div class="col-6 tamanho2  ">
           <table class="table table-striped table-bordered border-success  mx-auto">
@@ -170,7 +171,7 @@
                 <th class="text-warning" scope="col">Material</th>
                 <th class="text-warning" scope="col">Quantidade</th>
               </tr>
-            </thead>
+            </thead>            
             <tbody>
               <tr v-for="item in this.studentFind.itemOrder" :key="item">
                 <td>{{item.itemId}}</td>                
@@ -207,7 +208,7 @@ export default {
       student: {
         name: '',       
         schoolId: '',
-        parentId: ''
+        parentId: VueCookies.get('user').parentId
       },
       items: {         
       },
@@ -219,29 +220,24 @@ export default {
     }
   }, 
   mounted() {
-    //console.log(VueCookies.get('user').data.parentId)
     School.listar().then(school => {
       this.items = school.data;      
     });
-    Student.getById(this.$route.query.student).then(student => {      
-      console.log(student.data)
-      this.studentFind.name = student.data.name
-      this.studentFind.schoolName = student.data.schoolName      
-      student.data.itemOrder.forEach(element => {
-        this.studentFind.itemOrder = element   
-        //console.log(element)     
-      });      
-      //console.log(VueCookies.get('user'));
-    })
+    if(this.$route.query.student){
+      Student.getById(this.$route.query.student).then(student => {      
+        this.studentFind.name = student.data.name
+        this.studentFind.schoolName = student.data.schoolName      
+        student.data.itemOrder.forEach(element => {
+          this.studentFind.itemOrder = element             
+        });              
+      })
+    }    
   },
   methods: {
-    salvar() {/*
-      Student.salvar(this.student).then(resposta,erro => {
-        if(resposta) {
-            console.log(resposta)
-            console.log(erro)
-        }  
-      }) */          
+    salvar() {
+      Student.salvar(this.student).then(resposta => {        
+        this.$router.push('estudantelistamateriais?student=' + resposta.data.id);
+      })       
     }
   }
 }
