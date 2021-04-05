@@ -54,18 +54,19 @@
           </div>
         </div>
       </section>
-      <div></div>
-      <div class="col-6  mb-5 ">
-        <input
-          type="submit"
-          class="col-6 btn fotoTamanho2 botaoVerde text-white"
-          id=""
-        />
-        <label
-          class="input-group-text fotoTamanho2 botaoVerde text-white"
-          for=""
-          >Carregar foto</label
-        >
+      <div class="container">
+        <div class="col-6  mb-5 ">
+          <input
+            type="submit"
+            class="col-6 btn fotoTamanho2 botaoVerde text-white"
+            id=""
+          />
+          <label
+            class="input-group-text fotoTamanho2 botaoVerde text-white"
+            for=""
+            >Carregar foto</label
+          >
+        </div>
       </div>
       <ul class="nav nav-pills nav-fill">
         <li class="nav-item">
