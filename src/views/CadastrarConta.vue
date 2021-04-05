@@ -165,7 +165,7 @@
               <div class="container-md col-12 mb-3 pt-3 mx-auto ">
                 <div class="teste mx-auto">
                   <label for="exampleInputEmail1" class="form-label roxoLetra"
-                    >Email {{user.email}}</label
+                    >Email</label
                   >
                 </div>
                 <input
@@ -173,7 +173,7 @@
                   class="form-control inputInfo  mx-auto"
                   id="inputEmail"
                   aria-describedby="emailHelp"
-                  v-model="user.email"
+                  v-model="login.email"
                 />
 
               </div>
@@ -188,7 +188,7 @@
                   id="inputPassword5"
                   class="form-control inputInfo mx-auto"
                   aria-describedby="passwordHelpBlock"
-                  v-model="user.password"
+                  v-model="login.password"
                 />
 
                 <div id="passwordHelpBlock" class="form-text alinhamento"></div>
@@ -269,7 +269,12 @@ import User from "../service/user";
 export default {
   data() {
     return {
-      hasAccount: true,  
+      hasAccount: true, 
+      login: {
+        email: "",
+        password: ""
+
+      }, 
       user: {
         address: "",
         cep: "",
