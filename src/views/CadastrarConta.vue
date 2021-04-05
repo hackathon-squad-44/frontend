@@ -69,18 +69,32 @@
 
       <section class="container-sm col-12">
         <div class="row ">
-          <form class=" container-md col-12 mb-3  mx-auto ">
+          <form class=" container-md col-12 mb-3  mx-auto " @submit.prevent = "salvar">
             <div class="container-md col-12 mb-3 pt-3 mx-auto ">
               <div class="teste mx-auto">
                 <label for="exampleInputEmail1" class="form-label roxoLetra"
-                  >E-mail</label
+                  >Nome</label
                 >
               </div>
               <input
-                type="email"
+                type="text"
                 class="form-control inputInfo  mx-auto"
-                id="exampleInputEmail1"
+                id="inputName"
                 aria-describedby="emailHelp"
+                v-model="user.name"
+              />
+                          <div class="container-md col-12 mb-3 pt-3 mx-auto ">
+              <div class="teste mx-auto">
+                <label for="exampleInputEmail1" class="form-label roxoLetra"
+                  >Email</label
+                >
+              </div>
+              <input
+                type="text"
+                class="form-control inputInfo  mx-auto"
+                id="inputEmail"
+                aria-describedby="emailHelp"
+                v-model="user.email"
               />
               <div id="emailHelp" class="form-text teste  mx-auto">
                 Nunca compartilhe suas informações pessoais.
@@ -97,34 +111,25 @@
                 id="inputPassword5"
                 class="form-control inputInfo mx-auto"
                 aria-describedby="passwordHelpBlock"
+                v-model = "user.password"
               />
               <div id="passwordHelpBlock" class="form-text teste mx-auto ">
                 Conter de 8 a 20 caracteres, letras, números e caracteres
                 especiais.Não podendo conter espaços ou emojis.
-                <label for="inputPassword5" class="form-label mx-auto"
-                  >Senha</label
-                >
-                <input
-                  type="password"
-                  id="inputPassword5"
-                  class="form-control inputInfo"
-                  aria-describedby="passwordHelpBlock"
-                />
+              </div>
                 <div id="passwordHelpBlock" class="form-text alinhamento"></div>
-                <div class="container-md col-12 mb-3 pt-3 mx-auto form-check">
-                  <input
-                    type="checkbox"
-                    class="form-check-input col-4 form-check"
-                    id="exampleCheck1"
-                  />
-                  <label
-                    class="form-check-label roxoLetra ms-2"
-                    for="exampleCheck1 "
-                    >Não sou robô</label
-                  >
-                </div>
+
               </div>
             </div>
+                    <div
+          class=" container-md col-12 mb-3  setarPadding  form-check teste mx-auto "
+        >
+            <button type="submit" class="btn botaoVerde botao2  alinhamentoBotao">
+            <router-link to="/contausuariocadastrardoacao"
+              ><a href="">Criar Conta</a></router-link
+            >
+          </button>
+                    </div>
           </form>
         </div>
       </section>
@@ -132,11 +137,6 @@
         <div
           class=" container-md col-12 mb-3  setarPadding  form-check teste mx-auto "
         >
-          <button type="submit" class="btn botaoVerde botao2  alinhamentoBotao">
-            <router-link to="/contausuariocadastrardoacao"
-              ><a href="">Criar Conta</a></router-link
-            >
-          </button>
           <p class="teste mt-2 roxoLetra mx-auto">
             Ja possui uma conta?
             <router-link to="/login"
@@ -159,10 +159,7 @@
 </template>
 
 <script>
-const api = "user";
-const http = axios.create({
-        baseURL: "https://squad-44-api.herokuapp.com/",
-    });
+import User from '../service/user'
 
 export default {
   data(){
@@ -182,7 +179,12 @@ export default {
       }
     }
   },
-  methods() {
+  methods: {
+    salvar() {
+      User.salvar(this.user).then(resposta => {
+        alert("salvo com sucesso")
+      })
+    }
   }
 
 };
