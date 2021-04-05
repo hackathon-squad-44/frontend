@@ -27,17 +27,15 @@
             </li>
           </div>
           <div class="col-3">
-            <li class="nav-item">
-              <router-link to="/nossacausa">
-                <a class="nav-link" href="nossacausa.vue"
-                  >Nossa Causa</a
-                ></router-link
-              >
-            </li>
+            <router-link to="/nossacausa">
+              <li class="nav-item">
+                <a class="nav-link" href="">Nossa Causa</a>
+              </li>
+            </router-link>
           </div>
           <div class="col-4">
             <li class="nav-item">
-              <a class="nav-link " href="infos.html">Contato</a>
+              <a class="nav-link " href="">Contato</a>
             </li>
           </div>
         </ul>
