@@ -64,9 +64,9 @@
           <h2 class="teste roxoLetra setarPadding mx-auto">
             Escolas
           </h2>
-        </div>
+        </div>        
       </div>
-    </section>
+    </section>    
     <div class="row ">
       <div
         class="input-group flex-nowrap container-md col-12  pt-5 mx-auto barraPesquisa mx-auto "
