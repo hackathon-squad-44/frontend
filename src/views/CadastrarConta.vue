@@ -57,6 +57,7 @@
     </div>
     <!-- NavBar -->
     <main>
+      <div v-if = "isLogedIn">
       <section class="container-sm col-12 ">
         <div class="row">
           <div class=" container-md col-12  pt-4 setarMargin ">
@@ -236,6 +237,20 @@
           </form>
         </div>
       </section>
+      </div>
+      <div v-if = "!isLogedIn">
+
+        <p>Você já está logado</p>
+                        <button
+                type="submit"
+                class="btn botaoVerde botao2  alinhamentoBotao"
+              >
+                <router-link to="/contausuariocadastrardoacao"
+                  ><a href="">Seguir para a página do usuário</a></router-link
+                >
+              </button>
+        <p>  </p>
+      </div>
     </main>
     <div class=" container-fluid backVerde">
       <div class="container">
@@ -256,6 +271,7 @@ import VueCookies from 'vue-cookies'
 export default {
   data() {
     return {
+      isLogedIn: false,
       hasAccount: true,
       login: {
         email: "",
@@ -277,6 +293,10 @@ export default {
     };
   },
 
+  mounted() {
+    this.getLogedIn()
+  },
+
   methods: {
     salvar() {
       User.salvar(this.user).then((resposta) => {
@@ -295,6 +315,13 @@ export default {
     flip() {
       this.hasAccount = !this.hasAccount;
     },
+
+    getLogedIn(){
+        if (VueCookies.get('user'))
+        {
+          this.isLogedIn = true
+        }
+    }
 
   }
 };
