@@ -104,10 +104,12 @@
               <p>
                 Você ainda não cadastrou nenhum estudante, clique no botão ao
                 lado para cadastrar
-                <a href="estudanteListaMaterias.html"
-                  ><button class="botaoAdd ms-2">
-                    <img src="../assets/imgs/add.svg" alt="" /></button
-                ></a>
+                <router-link to="/estudantelistamateriais">
+                  <a href="">
+                    <button class="botaoAdd ms-2">
+                      <img src="../assets/imgs/add.svg" alt="" /></button
+                  ></a>
+                </router-link>
               </p>
             </div>
           </div>
