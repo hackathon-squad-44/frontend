@@ -75,7 +75,7 @@
       </div>
       <ul class="nav nav-pills nav-fill">
         <li class="nav-item">
-          <router-link to="/estudantelistamateriais">
+          <router-link to="/listaescolas">
             <a class="nav-link active " aria-current="page" href=""
               >Doar</a
             ></router-link
@@ -121,7 +121,7 @@
         <div
           class=" container-md col-12 mb-3  setarPadding  form-check teste mx-auto "
         >
-          <router-link to="/estudantelistamateriais">
+          <router-link to="/listaescolas">
             <button
               type="submit"
               class="btn botaoVerde botao2 roxoLetra  alinhamentoBotao"
