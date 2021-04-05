@@ -42,7 +42,7 @@
             >
           </div>
           <div class="col-3">
-            <router-link to="/login">
+            <router-link to="/CadastrarConta">
               <li class="nav-item px-2 mt-1">
                 <a
                   class="btn verdeLetra btn-outline-primary ml-md-2 mb-2 px-2a"
@@ -71,7 +71,7 @@
         <div class="row ">
           <form
             class=" container-md col-12 mb-3  mx-auto "
-            v-if = "!hasAccount"
+            v-if="!hasAccount"
             @submit.prevent="salvar"
           >
             <div class="container-md col-12 mb-3 pt-3 mx-auto ">
@@ -152,20 +152,16 @@
             </div>
           </form>
 
-
-                    <form
+          <form
             class=" container-md col-12 mb-3  mx-auto "
-            v-if = "hasAccount"
+            v-if="hasAccount"
             @submit.prevent="autorizar"
           >
             <div class="container-md col-12 mb-3 pt-3 mx-auto ">
-
-
-
               <div class="container-md col-12 mb-3 pt-3 mx-auto ">
                 <div class="teste mx-auto">
                   <label for="exampleInputEmail1" class="form-label roxoLetra"
-                    >Email {{user.email}}</label
+                    >Email</label
                   >
                 </div>
                 <input
@@ -173,9 +169,8 @@
                   class="form-control inputInfo  mx-auto"
                   id="inputEmail"
                   aria-describedby="emailHelp"
-                  v-model="user.email"
+                  v-model="login.email"
                 />
-
               </div>
               <div class="container-md col-12 mb-3 mx-auto ">
                 <div class="teste mx-auto">
@@ -188,7 +183,7 @@
                   id="inputPassword5"
                   class="form-control inputInfo mx-auto"
                   aria-describedby="passwordHelpBlock"
-                  v-model="user.password"
+                  v-model="login.password"
                 />
 
                 <div id="passwordHelpBlock" class="form-text alinhamento"></div>
@@ -207,47 +202,38 @@
               </button>
             </div>
           </form>
-
-
-
-
-
         </div>
       </section>
       <section class="container-sm col-6">
         <div
           class=" container-md col-12 mb-3  setarPadding  form-check teste mx-auto "
         >
-        <form
-        v-if= "!hasAccount"
-        @submit.prevent= "flip">
-          <p class="teste mt-2 roxoLetra mx-auto">
-            Ja possui uma conta?
-          </p>
-          
-                        <button
-                type="submit"
-                class="btn botaoVerde botao2  alinhamentoBotao"
-                @submit.prevent="salvar"
-              >
+          <form v-if="!hasAccount" @submit.prevent="flip">
+            <p class="teste mt-2 roxoLetra mx-auto">
+              Ja possui uma conta?
+            </p>
+
+            <button
+              type="submit"
+              class="btn botaoVerde botao2  alinhamentoBotao"
+              @submit.prevent="salvar"
+            >
               faça login
-              </button>
-        </form>
-                <form
-        v-if= "hasAccount"
-        @submit.prevent= "flip">
-          <p class="teste mt-2 roxoLetra mx-auto">
-            Ainda não possui uma conta?
-          </p>
-          
-                        <button
-                type="submit"
-                class="btn botaoVerde botao2  alinhamentoBotao"
-                @submit.prevent="salvar"
-              >
+            </button>
+          </form>
+          <form v-if="hasAccount" @submit.prevent="flip">
+            <p class="teste mt-2 roxoLetra mx-auto">
+              Ainda não possui uma conta?
+            </p>
+
+            <button
+              type="submit"
+              class="btn botaoVerde botao2  alinhamentoBotao"
+              @submit.prevent="salvar"
+            >
               cadastre-se
-              </button>
-        </form>
+            </button>
+          </form>
         </div>
       </section>
     </main>
@@ -265,11 +251,16 @@
 
 <script>
 import User from "../service/user";
+import VueCookies from 'vue-cookies'
 
 export default {
   data() {
     return {
-      hasAccount: true,  
+      hasAccount: true,
+      login: {
+        email: "",
+        password: "",
+      },
       user: {
         address: "",
         cep: "",
@@ -285,26 +276,27 @@ export default {
       },
     };
   },
+
   methods: {
     salvar() {
-
       User.salvar(this.user).then((resposta) => {
         console.log(resposta);
-
       });
     },
     autorizar() {
-      
-      User.autorizar(this.user).then((resposta) => {
+      User.autorizar(this.login).then((resposta) => {
+        if (resposta.status == 200){
+        VueCookies.set('user' , resposta.data, "24h") 
+        }
         console.log(resposta);
 
       });
-
     },
-    flip(){
-      this.hasAccount = !this.hasAccount
-    }
-  },
+    flip() {
+      this.hasAccount = !this.hasAccount;
+    },
+
+  }
 };
 </script>
 
