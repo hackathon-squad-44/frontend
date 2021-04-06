@@ -238,9 +238,11 @@
         </div>
       </section>
       </div>
-      <div v-if = "isLogedIn">
+      <div 
+      class=" container-md col-12 mb-3  setarPadding  form-check teste mx-auto "
+      v-if = "isLogedIn">
 
-        <p>Você já está logado</p>
+        <h2>Você já está logado</h2>
                         <button
                 type="submit"
                 class="btn botaoVerde botao2  alinhamentoBotao"
