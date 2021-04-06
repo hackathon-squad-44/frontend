@@ -41,17 +41,6 @@
               <a class="nav-link" href="">Contato</a></router-link
             >
           </div>
-          <div class="col-3">
-            <router-link to="/CadastrarConta">
-              <li class="nav-item px-2 mt-1">
-                <a
-                  class="btn verdeLetra btn-outline-primary ml-md-2 mb-2 px-2a"
-                  href="/login.vue"
-                  >LOGIN</a
-                >
-              </li>
-            </router-link>
-          </div>
         </ul>
       </div>
     </div>
