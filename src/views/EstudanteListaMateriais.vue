@@ -44,11 +44,11 @@
           </div>
           <div class="col-3">
             <li class="nav-item px-2 mt-1">
-              <router-link to="/login">
+              <router-link to="/">
                 <a
                   class="btn  verdeLetra btn-outline-primary ml-md-2 mb-2 px-2a"
                   href=""
-                  >LOGIN</a
+                  >SAIR</a
                 >
               </router-link>
             </li>
@@ -66,125 +66,135 @@
           </div>
         </div>
       </section>
-      
-      <section class="container-sm col-12" v-if=!this.$route.query.student>
-        <form class="row" @submit.prevent = "salvar">
+
+      <section class="container-sm col-12" v-if="!this.$route.query.student">
+        <form class="row" @submit.prevent="salvar">
           <div class="mx-auto setarPadding">
             <div class="col-md-6 position-relative mt-2 mx-auto">
-              <label for="validationTooltip01" class="form-label roxoLetra mx-2">Digite o nome do Estudante</label>
+              <label for="validationTooltip01" class="form-label roxoLetra mx-2"
+                >Digite o nome do Estudante</label
+              >
               <input
                 type="text"
                 class="form-control verdeLetra"
-                id="inputName"                
+                id="inputName"
                 v-model="student.name"
-                required/>
+                required
+              />
             </div>
             <div class="col-md-6 position-relative mt-3 mx-auto">
-              <label for="validationTooltip02" class="form-label roxoLetra mx-2">Selecione a Escola</label>                          
-              <select class="form-control" v-model = "student.schoolId">
+              <label for="validationTooltip02" class="form-label roxoLetra mx-2"
+                >Selecione a Escola</label
+              >
+              <select class="form-control" v-model="student.schoolId">
                 <option v-for="item in items" :value="item.id" :key="item.id">
-                {{ item.name }}
+                  {{ item.name }}
                 </option>
-              </select>            
+              </select>
             </div>
-          </div>                    
-          
+          </div>
+
           <section class="col-md-6 position-relative mt-3 mx-auto">
             <div class="row row-cols-2 ">
               <div class="col bot setarPadding  mx-auto">
                 <button
                   type="submit"
-                  class="btn botaoVerde botaoEstudante mt-1 mx-2 col-2 alinhamentoBotao">
+                  class="btn botaoVerde botaoEstudante mt-1 mx-2 col-2 alinhamentoBotao"
+                >
                   Cadastrar Aluno
                 </button>
               </div>
             </div>
-          </section>          
+          </section>
         </form>
       </section>
 
-      <section v-if=this.$route.query.student>
+      <section v-if="this.$route.query.student">
         <div class="mx-auto setarPadding">
-            <div class="col-md-6 position-relative mt-2 mx-auto">
-              <h4>{{studentFind.name}}</h4>
-            </div>
+          <div class="col-md-6 position-relative mt-2 mx-auto">
+            <h4>{{ studentFind.name }}</h4>
+          </div>
         </div>
         <div class="mx-auto setarPadding">
-            <div class="col-md-6 position-relative mt-2 mx-auto">
-              <h4>{{studentFind.schoolName}}</h4>
-            </div>
+          <div class="col-md-6 position-relative mt-2 mx-auto">
+            <h4>{{ studentFind.schoolName }}</h4>
+          </div>
         </div>
       </section>
-      
 
-    <div v-if=this.$route.query.student>
-      <section>
-        <div class="container tamanho">
-          <div class="col-md-6 position-relative mt-3 mx-auto">
-            <div
-              class="input-group flex-nowrap container-md col-6 setarPadding">
-              <span class="input-group-text" id="addon-wrapping">
-                &#128269;</span>
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Pesquisar material"
-                aria-label="Username"
-                aria-describedby="addon-wrapping"
-              />
-            </div>
-          </div>
-          <div class="row row-cols-2 ">
-            <div class="col bot setarPadding  mx-auto">
-              <select
-                class="btn text-white botaoVerde botaoEstudante mx-2 mt-3 col-6 alinhamentoBotao"
-                name="validationItens
-                            "
-                id="validationItens"
-                ><option class="  mt-2 selected disabled value="
-                  >Escolha</option
+      <div v-if="this.$route.query.student">
+        <section>
+          <div class="container tamanho">
+            <div class="col-md-6 position-relative mt-3 mx-auto">
+              <div
+                class="input-group flex-nowrap container-md col-6 setarPadding"
+              >
+                <span class="input-group-text" id="addon-wrapping">
+                  &#128269;</span
                 >
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-              </select>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Pesquisar material"
+                  aria-label="Username"
+                  aria-describedby="addon-wrapping"
+                />
+              </div>
             </div>
-            <div class="col bot setarPadding  mx-auto">
-              <button
-                type="submit"
-                class="btn botaoVerde botaoEstudante mt-3 mx-2 col-6 alinhamentoBotao">
-                <a href="">Adicionar</a>
-              </button>
+            <div class="row row-cols-2 ">
+              <div class="col bot setarPadding  mx-auto">
+                <select
+                  class="btn text-white botaoVerde botaoEstudante mx-2 mt-3 col-6 alinhamentoBotao"
+                  name="validationItens
+                            "
+                  id="validationItens"
+                  ><option class="  mt-2 selected disabled value="
+                    >Escolha</option
+                  >
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+              <div class="col bot setarPadding  mx-auto">
+                <button
+                  type="submit"
+                  class="btn botaoVerde botaoEstudante mt-3 mx-2 col-6 alinhamentoBotao"
+                >
+                  <a href="">Adicionar</a>
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      </section>    
-      {{this.studentFind.itemOrder}}                   
-      <div class="col-md col-12 mt-5 mx-auto tamanho2">
-        <div class="col-6 tamanho2  ">
-          <table class="table table-striped table-bordered border-success  mx-auto">
-            <thead class="col-6">
-              <tr>
-                <th class="text-warning" scope="col">#</th>
-                <th class="text-warning" scope="col">Material</th>
-                <th class="text-warning" scope="col">Quantidade</th>
-              </tr>
-            </thead>            
-            <tbody>
-              <tr v-for="item in this.studentFind.itemOrder" :key="item">
-                <td>{{item.itemId}}</td>                
-                <td>{{item.itemProduct}}</td>                
-                <td>{{item.quantity}}</td>                
-              </tr>                            
-            </tbody>
-          </table>          
+        </section>
+        {{ this.studentFind.itemOrder }}
+        <div class="col-md col-12 mt-5 mx-auto tamanho2">
+          <div class="col-6 tamanho2  ">
+            <table
+              class="table table-striped table-bordered border-success  mx-auto"
+            >
+              <thead class="col-6">
+                <tr>
+                  <th class="text-warning" scope="col">#</th>
+                  <th class="text-warning" scope="col">Material</th>
+                  <th class="text-warning" scope="col">Quantidade</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="item in this.studentFind.itemOrder" :key="item">
+                  <td>{{ item.itemId }}</td>
+                  <td>{{ item.itemProduct }}</td>
+                  <td>{{ item.quantity }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
-    </div>
-
-    </main><br><br>
+    </main>
+    <br /><br />
     <div class=" container-fluid backVerde">
       <div class="container">
         <div class="row">
@@ -198,53 +208,51 @@
 </template>
 
 <script>
-import Student from '../service/student'
-import School from '../service/school';
-import VueCookies from 'vue-cookies'
+import Student from "../service/student";
+import School from "../service/school";
+import VueCookies from "vue-cookies";
 
-export default {  
+export default {
   data() {
     return {
       student: {
-        name: '',       
-        schoolId: '',
-        parentId: VueCookies.get('user').parentId
+        name: "",
+        schoolId: "",
+        parentId: VueCookies.get("user").parentId,
       },
-      items: {         
-      },
+      items: {},
       studentFind: {
-        name: '',
-        schoolName: '',
-        itemOrder: {}
-      }
-    }
-  }, 
+        name: "",
+        schoolName: "",
+        itemOrder: {},
+      },
+    };
+  },
   mounted() {
-    School.listar().then(school => {
-      this.items = school.data;      
+    School.listar().then((school) => {
+      this.items = school.data;
     });
-    if(this.$route.query.student){
-      Student.getById(this.$route.query.student).then(student => {      
-        this.studentFind.name = student.data.name
-        this.studentFind.schoolName = student.data.schoolName      
-        student.data.itemOrder.forEach(element => {
-          this.studentFind.itemOrder = element             
-        });              
-      })
-    }    
+    if (this.$route.query.student) {
+      Student.getById(this.$route.query.student).then((student) => {
+        this.studentFind.name = student.data.name;
+        this.studentFind.schoolName = student.data.schoolName;
+        student.data.itemOrder.forEach((element) => {
+          this.studentFind.itemOrder = element;
+        });
+      });
+    }
   },
   methods: {
     salvar() {
-      Student.salvar(this.student).then(resposta => {        
-        this.$router.push('estudantelistamateriais?student=' + resposta.data.id);
-      })       
-    }
-  }
-}
-
+      Student.salvar(this.student).then((resposta) => {
+        this.$router.push(
+          "estudantelistamateriais?student=" + resposta.data.id
+        );
+      });
+    },
+  },
+};
 </script>
-
-
 
 <style>
 .px-2a {
