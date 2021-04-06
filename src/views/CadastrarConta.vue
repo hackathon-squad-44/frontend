@@ -302,13 +302,18 @@ export default {
   methods: {
     salvar() {
       User.salvar(this.user).then((resposta) => {
+        if (resposta.status == 200){
+        VueCookies.set('user' , resposta.data, "24h")
+        this.$router.push('contausuariocadastrardoacao'); 
+        }
         console.log(resposta);
       });
     },
     autorizar() {
       User.autorizar(this.login).then((resposta) => {
         if (resposta.status == 200){
-        VueCookies.set('user' , resposta.data, "24h") 
+        VueCookies.set('user' , resposta.data, "24h")
+        this.$router.push('contausuariocadastrardoacao'); 
         }
         console.log(resposta);
 
