@@ -24,7 +24,7 @@
           <div class="col-3">
             <li class="nav-item">
               <router-link to="/">
-                <a class="nav-link" href="">Inicio</a>
+                <a class="nav-link" href="/#/contausuariocadastrardoacao">Inicio</a>
               </router-link>
             </li>
           </div>
