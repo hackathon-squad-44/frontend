@@ -87,8 +87,8 @@
                 >Selecione a Escola</label
               >
               <select class="form-control" v-model="student.schoolId">
-                <option v-for="item in items" :value="item.id" :key="item.id">
-                  {{ item.name }}
+                <option v-for="school in schools" :value="item.id" :key="school.id">
+                  {{ school.name }}
                 </option>
               </select>
             </div>
@@ -121,40 +121,7 @@
           </div>
         </div>
       </section>
-<<<<<<< HEAD
 
-      <div v-if="this.$route.query.student">
-        <section>
-          <div class="container tamanho">
-            <div class="col-md-6 position-relative mt-3 mx-auto">
-              <div
-                class="input-group flex-nowrap container-md col-6 setarPadding"
-              >
-                <span class="input-group-text" id="addon-wrapping">
-                  &#128269;</span
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Pesquisar material"
-                  aria-label="Username"
-                  aria-describedby="addon-wrapping"
-                />
-              </div>
-            </div>
-            <div class="row row-cols-2 ">
-              <div class="col bot setarPadding  mx-auto">
-                <select
-                  class="btn text-white botaoVerde botaoEstudante mx-2 mt-3 col-6 alinhamentoBotao"
-                  name="validationItens
-                            "
-                  id="validationItens"
-                  ><option class="  mt-2 selected disabled value="
-                    >Escolha</option
-                  >
-                  <option>1</option>
-                  <option>2</option>
-=======
     <div v-if=this.$route.query.student>
       <section>
         <form class="row" @submit.prevent = "adicionarItem">
@@ -178,7 +145,6 @@
                   >
                   <option selected>1</option>                  
                   <option >2</option>
->>>>>>> 0082ec026b6b595e33bff45c6b7e3edab7ba9494
                   <option>3</option>
                   <option>4</option>
                   <option>5</option>
@@ -187,20 +153,14 @@
               <div class="col bot setarPadding  mx-auto" style="margin-top:25px">
                 <button
                   type="submit"
-<<<<<<< HEAD
-                  class="btn botaoVerde botaoEstudante mt-3 mx-2 col-6 alinhamentoBotao"
-                >
-                  <a href="">Adicionar</a>
-=======
                   class="btn text-white botaoVerde botaoEstudante mt-3 mx-2 col-6 alinhamentoBotao">
                   Adicionar
->>>>>>> 0082ec026b6b595e33bff45c6b7e3edab7ba9494
                 </button>
               </div>
             </div>
           </div>
-        </section>
-        {{ this.studentFind.itemOrder }}
+        </form>
+        </section>        
         <div class="col-md col-12 mt-5 mx-auto tamanho2">
           <div class="col-6 tamanho2  ">
             <table
@@ -214,7 +174,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="item in this.studentFind.itemOrder" :key="item">
+                <tr v-for="item in this.studentFind.itemOrder" :key="item.id">
                   <td>{{ item.itemId }}</td>
                   <td>{{ item.itemProduct }}</td>
                   <td>{{ item.quantity }}</td>
@@ -242,6 +202,8 @@
 import Student from "../service/student";
 import School from "../service/school";
 import VueCookies from "vue-cookies";
+import ItemOrder from '../service/itemOrder'
+import Item from '../service/item';
 
 export default {
   data() {
@@ -251,16 +213,9 @@ export default {
         schoolId: "",
         parentId: VueCookies.get("user").parentId,
       },
+      schools: {},
       items: {},
       studentFind: {
-<<<<<<< HEAD
-        name: "",
-        schoolName: "",
-        itemOrder: {},
-      },
-    };
-  },
-=======
         name: '',
         schoolName: '',
         itemOrder: {}
@@ -272,18 +227,15 @@ export default {
       }
     }
   }, 
->>>>>>> 0082ec026b6b595e33bff45c6b7e3edab7ba9494
   mounted() {
-    School.listar().then((school) => {
-      this.items = school.data;
-    });
+    School.listar().then((school) => this.schools = school.data);
+    Item.listar().then((item) => this.items = item.data);
     if (this.$route.query.student) {
       Student.getById(this.$route.query.student).then((student) => {
         this.studentFind.name = student.data.name;
         this.studentFind.schoolName = student.data.schoolName;
-        student.data.itemOrder.forEach((element) => {
-          this.studentFind.itemOrder = element;
-        });
+        this.itemOrder.orderId = student.data.orderId
+        this.studentFind.itemOrder = student.data.itemOrder
       });
     }
   },
@@ -295,10 +247,6 @@ export default {
         );
       });
     },
-<<<<<<< HEAD
-  },
-};
-=======
 
     adicionarItem() {      
       console.log(this.itemOrder)
@@ -309,7 +257,6 @@ export default {
     }
   }
 }
->>>>>>> 0082ec026b6b595e33bff45c6b7e3edab7ba9494
 </script>
 
 <style>
