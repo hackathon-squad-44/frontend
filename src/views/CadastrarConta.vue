@@ -41,22 +41,12 @@
               <a class="nav-link" href="">Contato</a></router-link
             >
           </div>
-          <div class="col-3">
-            <router-link to="/login">
-              <li class="nav-item px-2 mt-1">
-                <a
-                  class="btn verdeLetra btn-outline-primary ml-md-2 mb-2 px-2a"
-                  href="/login.vue"
-                  >LOGIN</a
-                >
-              </li>
-            </router-link>
-          </div>
         </ul>
       </div>
     </div>
     <!-- NavBar -->
     <main>
+      <div v-if = "!isLogedIn">
       <section class="container-sm col-12 ">
         <div class="row">
           <div class=" container-md col-12  pt-4 setarMargin ">
@@ -69,61 +59,137 @@
 
       <section class="container-sm col-12">
         <div class="row ">
-          <form class=" container-md col-12 mb-3  mx-auto ">
+          <form
+            class=" container-md col-12 mb-3  mx-auto "
+            v-if="!hasAccount"
+            @submit.prevent="salvar"
+          >
             <div class="container-md col-12 mb-3 pt-3 mx-auto ">
               <div class="teste mx-auto">
                 <label for="exampleInputEmail1" class="form-label roxoLetra"
-                  >E-mail</label
+                  >Nome</label
                 >
               </div>
               <input
-                type="email"
+                type="text"
                 class="form-control inputInfo  mx-auto"
-                id="exampleInputEmail1"
+                id="inputName"
                 aria-describedby="emailHelp"
+                v-model="user.name"
               />
-              <div id="emailHelp" class="form-text teste  mx-auto">
-                Nunca compartilhe suas informações pessoais.
-              </div>
-            </div>
-            <div class="container-md col-12 mb-3 mx-auto ">
+
               <div class="teste mx-auto">
                 <label for="exampleInputEmail1" class="form-label roxoLetra"
-                  >Senha</label
+                  >CPF</label
                 >
               </div>
               <input
-                type="password"
-                id="inputPassword5"
-                class="form-control inputInfo mx-auto"
-                aria-describedby="passwordHelpBlock"
+                type="text"
+                class="form-control inputInfo  mx-auto"
+                id="inputCpf"
+                aria-describedby="emailHelp"
+                v-model="user.cpf"
               />
-              <div id="passwordHelpBlock" class="form-text teste mx-auto ">
-                Conter de 8 a 20 caracteres, letras, números e caracteres
-                especiais.Não podendo conter espaços ou emojis.
-                <label for="inputPassword5" class="form-label mx-auto"
-                  >Senha</label
-                >
+
+              <div class="container-md col-12 mb-3 pt-3 mx-auto ">
+                <div class="teste mx-auto">
+                  <label for="exampleInputEmail1" class="form-label roxoLetra"
+                    >Email</label
+                  >
+                </div>
+                <input
+                  type="text"
+                  class="form-control inputInfo  mx-auto"
+                  id="inputEmail"
+                  aria-describedby="emailHelp"
+                  v-model="user.email"
+                />
+                <div id="emailHelp" class="form-text teste  mx-auto">
+                  Nunca compartilhe suas informações pessoais.
+                </div>
+              </div>
+              <div class="container-md col-12 mb-3 mx-auto ">
+                <div class="teste mx-auto">
+                  <label for="exampleInputEmail1" class="form-label roxoLetra"
+                    >Senha</label
+                  >
+                </div>
                 <input
                   type="password"
                   id="inputPassword5"
-                  class="form-control inputInfo"
+                  class="form-control inputInfo mx-auto"
                   aria-describedby="passwordHelpBlock"
+                  v-model="user.password"
                 />
+                <div id="passwordHelpBlock" class="form-text teste mx-auto ">
+                  Conter de 8 a 20 caracteres, letras, números e caracteres
+                  especiais.Não podendo conter espaços ou emojis.
+                </div>
                 <div id="passwordHelpBlock" class="form-text alinhamento"></div>
-                <div class="container-md col-12 mb-3 pt-3 mx-auto form-check">
-                  <input
-                    type="checkbox"
-                    class="form-check-input col-4 form-check"
-                    id="exampleCheck1"
-                  />
-                  <label
-                    class="form-check-label roxoLetra ms-2"
-                    for="exampleCheck1 "
-                    >Não sou robô</label
+              </div>
+            </div>
+            <div
+              class=" container-md col-12 mb-3  setarPadding  form-check teste mx-auto "
+            >
+              <button
+                type="submit"
+                class="btn botaoVerde botao2  alinhamentoBotao"
+              >
+                <router-link to="/contausuariocadastrardoacao"
+                  ><a href="">Criar Conta</a></router-link
+                >
+              </button>
+            </div>
+          </form>
+
+          <form
+            class=" container-md col-12 mb-3  mx-auto "
+            v-if="hasAccount"
+            @submit.prevent="autorizar"
+          >
+            <div class="container-md col-12 mb-3 pt-3 mx-auto ">
+              <div class="container-md col-12 mb-3 pt-3 mx-auto ">
+                <div class="teste mx-auto">
+                  <label for="exampleInputEmail1" class="form-label roxoLetra"
+                    >Email</label
                   >
                 </div>
+                <input
+                  type="text"
+                  class="form-control inputInfo  mx-auto"
+                  id="inputEmail"
+                  aria-describedby="emailHelp"
+                  v-model="login.email"
+                />
               </div>
+              <div class="container-md col-12 mb-3 mx-auto ">
+                <div class="teste mx-auto">
+                  <label for="exampleInputEmail1" class="form-label roxoLetra"
+                    >Senha</label
+                  >
+                </div>
+                <input
+                  type="password"
+                  id="inputPassword5"
+                  class="form-control inputInfo mx-auto"
+                  aria-describedby="passwordHelpBlock"
+                  v-model="login.password"
+                />
+
+                <div id="passwordHelpBlock" class="form-text alinhamento"></div>
+              </div>
+            </div>
+            <div
+              class=" container-md col-12 mb-3  setarPadding  form-check teste mx-auto "
+            >
+              <button
+                type="submit"
+                class="btn botaoVerde botao2  alinhamentoBotao"
+              >
+                <router-link to="/contausuariocadastrardoacao"
+                  ><a href="">Login</a></router-link
+                >
+              </button>
             </div>
           </form>
         </div>
@@ -132,19 +198,50 @@
         <div
           class=" container-md col-12 mb-3  setarPadding  form-check teste mx-auto "
         >
-          <button type="submit" class="btn botaoVerde botao2  alinhamentoBotao">
-            <router-link to="/contausuariocadastrardoacao"
-              ><a href="">Criar Conta</a></router-link
+          <form v-if="!hasAccount" @submit.prevent="flip">
+            <p class="teste mt-2 roxoLetra mx-auto">
+              Ja possui uma conta?
+            </p>
+
+            <button
+              type="submit"
+              class="btn botaoVerde botao2  alinhamentoBotao"
+              @submit.prevent="salvar"
             >
-          </button>
-          <p class="teste mt-2 roxoLetra mx-auto">
-            Ja possui uma conta?
-            <router-link to="/login"
-              ><a href="login.html">Entrar</a></router-link
+              faça login
+            </button>
+          </form>
+          <form v-if="hasAccount" @submit.prevent="flip">
+            <p class="teste mt-2 roxoLetra mx-auto">
+              Ainda não possui uma conta?
+            </p>
+
+            <button
+              type="submit"
+              class="btn botaoVerde botao2  alinhamentoBotao"
+              @submit.prevent="salvar"
             >
-          </p>
+              cadastre-se
+            </button>
+          </form>
         </div>
       </section>
+      </div>
+      <div 
+      class=" container-md col-12 mb-3  setarPadding  form-check teste mx-auto "
+      v-if = "isLogedIn">
+
+        <h2>Você já está logado</h2>
+                        <button
+                type="submit"
+                class="btn botaoVerde botao2  alinhamentoBotao"
+              >
+                <router-link to="/contausuariocadastrardoacao"
+                  ><a href="">Seguir para a página do usuário</a></router-link
+                >
+              </button>
+        <p>  </p>
+      </div>
     </main>
     <div class=" container-fluid backVerde">
       <div class="container">
@@ -159,7 +256,72 @@
 </template>
 
 <script>
-export default {};
+import User from "../service/user";
+import VueCookies from 'vue-cookies'
+
+export default {
+  data() {
+    return {
+      isLogedIn: false,
+      hasAccount: true,
+      login: {
+        email: "",
+        password: "",
+      },
+      user: {
+        address: "",
+        cep: "",
+        city: "",
+        cpf: "",
+        district: "",
+        email: "",
+        name: "",
+        number: "",
+        password: "",
+        phone: "",
+        state: "",
+      },
+    };
+  },
+
+  mounted() {
+    this.getLogedIn()
+  },
+
+  methods: {
+    salvar() {
+      User.salvar(this.user).then((resposta) => {
+        if (resposta.status == 200){
+        VueCookies.set('user' , resposta.data, "24h")
+        this.$router.push('contausuariocadastrardoacao'); 
+        }
+        console.log(resposta);
+      });
+    },
+    autorizar() {
+      User.autorizar(this.login).then((resposta) => {
+        if (resposta.status == 200){
+        VueCookies.set('user' , resposta.data, "24h")
+        this.$router.push('contausuariocadastrardoacao'); 
+        }
+        console.log(resposta);
+
+      });
+    },
+    flip() {
+      this.hasAccount = !this.hasAccount;
+    },
+
+    getLogedIn(){
+        if (VueCookies.get('user'))
+        {
+          console.log(VueCookies.get('user'))
+          this.isLogedIn = true
+        }
+    }
+
+  }
+};
 </script>
 
 <style></style>

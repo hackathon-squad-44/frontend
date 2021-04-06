@@ -48,11 +48,15 @@
     <main>
       <section class="container-sm col-12">
         <div class="row ">
-          <form class=" container-md col-12 mb-3  mx-auto ">
+          <form
+            class=" container-md col-12 mb-3  mx-auto "
+            @submit.prevent="autorizar"
+          >
+
             <div class="container-md col-12 mb-3 pt-5 mx-auto ">
               <div class="teste mx-auto">
                 <label for="exampleInputEmail1" class="form-label roxoLetra"
-                  >E-mail</label
+                  >E-mail {{ user.email }}</label
                 >
               </div>
               <input
@@ -60,6 +64,7 @@
                 class="form-control inputInfo  mx-auto"
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
+                v.model="user.email"
               />
               <div id="emailHelp" class="form-text teste  mx-auto">
                 Nunca compartilhe suas informações pessoais.
@@ -75,20 +80,19 @@
               id="inputPassword5"
               class="form-control inputInfo mx-auto"
               aria-describedby="passwordHelpBlock"
+              v-model="user.password"
             />
+
             <div id="passwordHelpBlock" class="form-text teste mx-auto ">
-              <div id="passwordHelpBlock" class="form-text alinhamento"></div>
               <div class="container-md col-12 mb-3 pt-3 mx-auto form-check">
-                <input
-                  type="checkbox"
-                  class="form-check-input col-4 form-check"
-                  id="exampleCheck1"
-                />
-                <label
-                  class="form-check-label roxoLetra ms-2"
-                  for="exampleCheck1 "
-                  >Não sou robô</label
+                <button
+                  type="submit"
+                  class="btn botaoVerde botao2 roxoLetra  alinhamentoBotao"
                 >
+                  <router-link to="/contausuario"
+                    ><a href="">Login</a></router-link
+                  >
+                </button>
               </div>
             </div>
           </form>
@@ -98,12 +102,6 @@
         <div
           class=" container-md col-12 mb-3  setarPadding  form-check teste mx-auto "
         >
-          <button
-            type="submit"
-            class="btn botaoVerde botao2 roxoLetra  alinhamentoBotao"
-          >
-            <router-link to="/contausuario"><a href="">Login</a></router-link>
-          </button>
           <p class="teste mt-2 roxoLetra text-center mx-auto">
             Não possui uma conta?
             <router-link to="/cadastrarconta"
@@ -124,6 +122,42 @@
     </div>
   </div>
 </template>
+
+<script>
+/*
+import User from "../service/user";
+*/
+export default {
+  data() {
+    return {
+      user: {
+        address: "",
+        cep: "",
+        city: "",
+        cpf: "",
+        district: "",
+        email: "",
+        name: "",
+        number: "",
+        password: "",
+        phone: "",
+        state: "",
+      },
+    };
+  },
+  methods: {
+    autorizar() {
+      /*
+      User.autorizar(this.user).then((resposta) => {
+        console.log(resposta);
+
+      });
+            */
+      alert(this.user.email)
+    },
+  },
+};
+</script>
 
 <style>
 .nav1 {

@@ -66,55 +66,74 @@
           </div>
         </div>
       </section>
-
-      <section class="container-sm col-12">
-        <form class="row ">
+      
+      <section class="container-sm col-12" v-if=!this.$route.query.student>
+        <form class="row" @submit.prevent = "salvar">
           <div class="mx-auto setarPadding">
             <div class="col-md-6 position-relative mt-2 mx-auto">
-              <label for="validationTooltip01" class="form-label roxoLetra mx-2"
-                >Digite o nome do Estudante</label
-              >
+              <label for="validationTooltip01" class="form-label roxoLetra mx-2">Digite o nome do Estudante</label>
               <input
                 type="text"
                 class="form-control verdeLetra"
-                id="validationTooltip01"
-                value=""
-                required
-              />
+                id="inputName"                
+                v-model="student.name"
+                required/>
             </div>
             <div class="col-md-6 position-relative mt-3 mx-auto">
-              <label for="validationTooltip02" class="form-label roxoLetra mx-2"
-                >Digite o nome da Escola</label
-              >
-              <input
-                type="text"
-                class="form-control verdeLetra"
-                id="validationTooltip02"
-                value=""
-                required
-              />
+              <label for="validationTooltip02" class="form-label roxoLetra mx-2">Selecione a Escola</label>                          
+              <select class="form-control" v-model = "student.schoolId">
+                <option v-for="item in items" :value="item.id" :key="item.id">
+                {{ item.name }}
+                </option>
+              </select>            
             </div>
-            <div class="col-md-6 position-relative mt-3 mx-auto">
-              <div
-                class="input-group flex-nowrap container-md col-6 setarPadding"
-              >
-                <span class="input-group-text" id="addon-wrapping">
-                  &#128269;</span
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Pesquisar material"
-                  aria-label="Username"
-                  aria-describedby="addon-wrapping"
-                />
+          </div>                    
+          
+          <section class="col-md-6 position-relative mt-3 mx-auto">
+            <div class="row row-cols-2 ">
+              <div class="col bot setarPadding  mx-auto">
+                <button
+                  type="submit"
+                  class="btn botaoVerde botaoEstudante mt-1 mx-2 col-2 alinhamentoBotao">
+                  Cadastrar Aluno
+                </button>
               </div>
             </div>
-          </div>
+          </section>          
         </form>
       </section>
+
+      <section v-if=this.$route.query.student>
+        <div class="mx-auto setarPadding">
+            <div class="col-md-6 position-relative mt-2 mx-auto">
+              <h4>{{studentFind.name}}</h4>
+            </div>
+        </div>
+        <div class="mx-auto setarPadding">
+            <div class="col-md-6 position-relative mt-2 mx-auto">
+              <h4>{{studentFind.schoolName}}</h4>
+            </div>
+        </div>
+      </section>
+      
+
+    <div v-if=this.$route.query.student>
       <section>
         <div class="container tamanho">
+          <div class="col-md-6 position-relative mt-3 mx-auto">
+            <div
+              class="input-group flex-nowrap container-md col-6 setarPadding">
+              <span class="input-group-text" id="addon-wrapping">
+                &#128269;</span>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Pesquisar material"
+                aria-label="Username"
+                aria-describedby="addon-wrapping"
+              />
+            </div>
+          </div>
           <div class="row row-cols-2 ">
             <div class="col bot setarPadding  mx-auto">
               <select
@@ -135,46 +154,37 @@
             <div class="col bot setarPadding  mx-auto">
               <button
                 type="submit"
-                class="btn botaoVerde botaoEstudante mt-3 mx-2 col-6 alinhamentoBotao"
-              >
+                class="btn botaoVerde botaoEstudante mt-3 mx-2 col-6 alinhamentoBotao">
                 <a href="">Adicionar</a>
               </button>
             </div>
           </div>
         </div>
-      </section>
-      <div class="col-md col-6 mt-5 mx-auto tamanho2">
+      </section>    
+      {{this.studentFind.itemOrder}}                   
+      <div class="col-md col-12 mt-5 mx-auto tamanho2">
         <div class="col-6 tamanho2  ">
-          <table
-            class="table table-striped table-bordered border-success  mx-auto"
-          >
+          <table class="table table-striped table-bordered border-success  mx-auto">
             <thead class="col-6">
               <tr>
                 <th class="text-warning" scope="col">#</th>
                 <th class="text-warning" scope="col">Material</th>
                 <th class="text-warning" scope="col">Quantidade</th>
               </tr>
-            </thead>
+            </thead>            
             <tbody>
-              <tr>
-                <th scope="row"></th>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <th scope="row"></th>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <th scope="row"></th>
-                <td colspan="2"></td>
-              </tr>
+              <tr v-for="item in this.studentFind.itemOrder" :key="item">
+                <td>{{item.itemId}}</td>                
+                <td>{{item.itemProduct}}</td>                
+                <td>{{item.quantity}}</td>                
+              </tr>                            
             </tbody>
-          </table>
+          </table>          
         </div>
       </div>
-    </main>
+    </div>
+
+    </main><br><br>
     <div class=" container-fluid backVerde">
       <div class="container">
         <div class="row">
@@ -188,8 +198,53 @@
 </template>
 
 <script>
-export default {};
+import Student from '../service/student'
+import School from '../service/school';
+import VueCookies from 'vue-cookies'
+
+export default {  
+  data() {
+    return {
+      student: {
+        name: '',       
+        schoolId: '',
+        parentId: VueCookies.get('user').parentId
+      },
+      items: {         
+      },
+      studentFind: {
+        name: '',
+        schoolName: '',
+        itemOrder: {}
+      }
+    }
+  }, 
+  mounted() {
+    School.listar().then(school => {
+      this.items = school.data;      
+    });
+    if(this.$route.query.student){
+      Student.getById(this.$route.query.student).then(student => {      
+        this.studentFind.name = student.data.name
+        this.studentFind.schoolName = student.data.schoolName      
+        student.data.itemOrder.forEach(element => {
+          this.studentFind.itemOrder = element             
+        });              
+      })
+    }    
+  },
+  methods: {
+    salvar() {
+      Student.salvar(this.student).then(resposta => {        
+        this.$router.push('estudantelistamateriais?student=' + resposta.data.id);
+      })       
+    }
+  }
+}
+
 </script>
+
+
 
 <style>
 .px-2a {

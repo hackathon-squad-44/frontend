@@ -39,7 +39,7 @@
             >
           </div>
           <div class="col-3">
-            <router-link to="/login">
+            <router-link to="/cadastrarConta">
               <li class="nav-item px-2 mt-1">
                 <a
                   class="btn verdeLetra btn-outline-primary ml-md-2 mb-2 px-2a"
@@ -90,6 +90,7 @@
       </section>
       <section class="conatiner col-6 mx-auto pt-5 pb-5 ">
         <div class="d-grid gap-2 col-6 mx-auto">
+          <p>Basta criar uma conta ou logar clicando no botão abaixo:</p>
           <button class="btn botao  botaoVerde mx-auto" type="button">
             <router-link to="/cadastrarconta">
               <a href="">Criar Conta</a></router-link
