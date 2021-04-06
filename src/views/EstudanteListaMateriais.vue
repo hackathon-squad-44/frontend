@@ -216,9 +216,7 @@ export default {
         name: '',
         schoolName: '',
         itemOrder: {}
-      },
-      items: {        
-      },
+      },      
       itemOrder: {
         orderId: '',
         quantity: '',
@@ -248,6 +246,7 @@ export default {
     adicionarItem() {      
       console.log(this.itemOrder)
       ItemOrder.salvar(this.itemOrder).then(resposta => {        
+        console.log(resposta)
         location.reload();
       })
     }

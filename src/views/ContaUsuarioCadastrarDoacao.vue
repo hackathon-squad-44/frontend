@@ -60,21 +60,14 @@
     <main>
       <section class="container-sm col-12 ">
         <div class="row">
-          <div class=" container-md col-12  pt-5 setarMargin ">
-            <p class="teste roxoLetra setarPadding mx-auto">
-              Nome do usuario
-            </p>
+          <div class=" col-12  pt-5 setarMargin ">
+            <h2 class="teste roxoLetra setarPadding mx-auto">
+              Bem vindo(a), {{userName}}
+            </h2>
           </div>
         </div>
       </section>
-      <div class="container">
-        <div class="col-6  mb-5 ">
-          <input
-            type="submit"
-            class="col-6 btn fotoTamanho2 botaoVerde text-white"
-            id=""
-          />
-        </div>
+      <div class="container">        
         <ul class="nav nav-pills nav-fill">
           <li class="nav-item">
             <router-link to="/contausuario"
@@ -103,20 +96,39 @@
             </div>
           </div>
         </section>
-        <section class="container-sm col-9 mt-2 mb-5">
+        <div class="col-md-8 position-relative mt-3  mb-5 setarPadding" v-if=this.students.length>              
+          <p>
+            clique no botão ao lado para cadastrar um novo Estudante
+            <router-link to="/estudantelistamateriais">
+              <a href="">
+                <button class="botaoAdd ms-2">
+                  <img src="../assets/imgs/add.svg" alt="" /></button
+              ></a>
+            </router-link>
+          </p>
+        </div>
+        <section class="container-sm col-12 mt-2 mb-5">
           <div class="row">
-            <div class="col-md-8 position-relative mt-3  mb-5 setarPadding">
-              <p>
-                Você ainda não cadastrou nenhum estudante, clique no botão ao
-                lado para cadastrar
-                <router-link to="/estudantelistamateriais">
-                  <a href="">
-                    <button class="botaoAdd ms-2">
-                      <img src="../assets/imgs/add.svg" alt="" /></button
-                  ></a>
-                </router-link>
-              </p>
-            </div>
+            <div class="col-md col-12 mt-5 mx-auto tamanho2">
+              <div class="col-12 ">
+                <table class="table table-striped table-bordered border-success  mx-auto">
+                  <thead class="col-12">
+                    <tr>
+                      <th class="text-warning" scope="col">ID</th>
+                      <th class="text-warning" scope="col">Nome</th>
+                      <th class="text-warning" scope="col">Escola</th>
+                    </tr>
+                  </thead>            
+                  <tbody>
+                    <tr v-for="student in this.students" :key="student.id">
+                      <td>{{student.id}}</td>
+                      <td>{{student.name}}</td>
+                      <td>{{student.schoolName}}</td>
+                    </tr>                            
+                  </tbody>
+                </table>          
+              </div>
+            </div>               
           </div>
         </section>
       </div>
@@ -134,7 +146,29 @@
 </template>
 
 <script>
-export default {};
+import Parent from '../service/parent'
+import VueCookies from 'vue-cookies'
+
+export default {
+  data() {
+    return {
+      userName: VueCookies.get('user').name,
+      students: {
+
+      }
+    }    
+  }, 
+  mounted() {
+      Parent.getById(VueCookies.get('user').parentId).then(resposta => {
+        console.log(resposta)
+        this.students = resposta.data.dependents
+      })
+  },
+  methods: {
+    
+  }  
+}
+
 </script>
 
 <style>
