@@ -96,7 +96,7 @@
             </div>
           </div>
         </section>
-        <div class="col-md-8 position-relative mt-3  mb-5 setarPadding" v-if=this.students.length>              
+        <div class="col-md-8 position-relative mt-3  mb-5 setarPadding">              
           <p>
             clique no botão ao lado para cadastrar um novo Estudante
             <router-link to="/estudantelistamateriais">
