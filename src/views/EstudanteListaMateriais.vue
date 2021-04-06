@@ -44,11 +44,11 @@
           </div>
           <div class="col-3">
             <li class="nav-item px-2 mt-1">
-              <router-link to="/login">
+              <router-link to="/">
                 <a
                   class="btn  verdeLetra btn-outline-primary ml-md-2 mb-2 px-2a"
                   href=""
-                  >LOGIN</a
+                  >SAIR</a
                 >
               </router-link>
             </li>
@@ -66,18 +66,21 @@
           </div>
         </div>
       </section>
-      
-      <section class="container-sm col-12" v-if=!this.$route.query.student>
-        <form class="row" @submit.prevent = "salvar">
+
+      <section class="container-sm col-12" v-if="!this.$route.query.student">
+        <form class="row" @submit.prevent="salvar">
           <div class="mx-auto setarPadding">
             <div class="col-md-6 position-relative mt-2 mx-auto">
-              <label for="validationTooltip01" class="form-label roxoLetra mx-2">Digite o nome do Estudante</label>
+              <label for="validationTooltip01" class="form-label roxoLetra mx-2"
+                >Digite o nome do Estudante</label
+              >
               <input
                 type="text"
                 class="form-control verdeLetra"
-                id="inputName"                
+                id="inputName"
                 v-model="student.name"
-                required/>
+                required
+              />
             </div>
             <div class="col-md-6 position-relative mt-3 mx-auto">
               <label for="validationTooltip02" class="form-label roxoLetra mx-2">Selecione a Escola</label>                          
@@ -85,37 +88,37 @@
                 <option v-for="school in schools" :value="school.id" :key="school.id">
                 {{ school.name }}
                 </option>
-              </select>            
+              </select>
             </div>
-          </div>                    
-          
+          </div>
+
           <section class="col-md-6 position-relative mt-3 mx-auto">
             <div class="row row-cols-2 ">
               <div class="col bot setarPadding  mx-auto">
                 <button
                   type="submit"
-                  class="btn botaoVerde botaoEstudante mt-1 mx-2 col-2 alinhamentoBotao">
+                  class="btn botaoVerde botaoEstudante mt-1 mx-2 col-2 alinhamentoBotao"
+                >
                   Cadastrar Aluno
                 </button>
               </div>
             </div>
-          </section>          
+          </section>
         </form>
       </section>
 
-      <section v-if=this.$route.query.student>
+      <section v-if="this.$route.query.student">
         <div class="mx-auto setarPadding">
-            <div class="col-md-6 position-relative mt-2 mx-auto">
-              <h4>{{studentFind.name}}</h4>
-            </div>
+          <div class="col-md-6 position-relative mt-2 mx-auto">
+            <h4>{{ studentFind.name }}</h4>
+          </div>
         </div>
         <div class="mx-auto setarPadding">
-            <div class="col-md-6 position-relative mt-2 mx-auto">
-              <h4>{{studentFind.schoolName}}</h4>
-            </div>
+          <div class="col-md-6 position-relative mt-2 mx-auto">
+            <h4>{{ studentFind.schoolName }}</h4>
+          </div>
         </div>
       </section>
-      
 
     <div v-if=this.$route.query.student>
       <section>
@@ -198,7 +201,7 @@ import ItemOrder from '../service/itemOrder';
 
 import VueCookies from 'vue-cookies'
 
-export default {  
+export default {
   data() {
     return {
       student: {
@@ -208,6 +211,7 @@ export default {
       },
       schools: {         
       },
+      items: {},
       studentFind: {
         name: '',
         schoolName: '',
@@ -249,10 +253,7 @@ export default {
     }
   }
 }
-
 </script>
-
-
 
 <style>
 .px-2a {

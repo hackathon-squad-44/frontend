@@ -41,17 +41,6 @@
               <a class="nav-link" href="">Contato</a></router-link
             >
           </div>
-          <div class="col-3">
-            <router-link to="/CadastrarConta">
-              <li class="nav-item px-2 mt-1">
-                <a
-                  class="btn verdeLetra btn-outline-primary ml-md-2 mb-2 px-2a"
-                  href="/login.vue"
-                  >LOGIN</a
-                >
-              </li>
-            </router-link>
-          </div>
         </ul>
       </div>
     </div>
@@ -302,13 +291,18 @@ export default {
   methods: {
     salvar() {
       User.salvar(this.user).then((resposta) => {
+        if (resposta.status == 200){
+        VueCookies.set('user' , resposta.data, "24h")
+        this.$router.push('contausuariocadastrardoacao'); 
+        }
         console.log(resposta);
       });
     },
     autorizar() {
       User.autorizar(this.login).then((resposta) => {
         if (resposta.status == 200){
-        VueCookies.set('user' , resposta.data, "24h") 
+        VueCookies.set('user' , resposta.data, "24h")
+        this.$router.push('contausuariocadastrardoacao'); 
         }
         console.log(resposta);
 

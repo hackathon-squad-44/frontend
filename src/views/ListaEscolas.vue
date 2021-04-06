@@ -64,9 +64,9 @@
           <h2 class="teste roxoLetra setarPadding mx-auto">
             Escolas
           </h2>
-        </div>        
+        </div>
       </div>
-    </section>    
+    </section>
     <div class="row ">
       <div
         class="input-group flex-nowrap container-md col-12  pt-5 mx-auto barraPesquisa mx-auto "
@@ -112,168 +112,27 @@
       </div>
     </section>
     <section class="container-sm col-12 mb-5">
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="flush-headingThree">
-          <button
-            class=" accordion-button collapsed roxoLetra"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#flush-collapseThree"
-            aria-expanded="false"
-            aria-controls="flush-collapseThree"
+      <div class="col-md col-12 mt-5 mx-auto tamanho2">
+        <div class="col-6 tamanho2">
+          <table
+            class="table table-striped table-bordered border-success mx-auto"
           >
-            Nome do aluno: Escola:
-          </button>
-        </h2>
-        <div
-          id="flush-collapseThree"
-          class="accordion-collapse collapse"
-          aria-labelledby="flush-headingThree"
-          data-bs-parent="#accordionFlushExample"
-        >
-          <div class="accordion-body">
-            <p class="roxoLetra">Itens da lista escolar:</p>
-            <ol class="list-group list-group-numbered">
-              <li
-                class="list-group-item d-flex justify-content-between align-items-start"
-              >
-                <div class="ms-2 me-auto">
-                  <div class="fw-bold">Caderno</div>
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="flexCheckDefault"
-                  />
-                  <label class="form-check-label" for="flexCheckDefault">
-                    Vou doar!
-                  </label>
-                </div>
-                <span class="badge bg-success rounded-pill">0</span>
-              </li>
-              <li
-                class="list-group-item d-flex justify-content-between align-items-start"
-              >
-                <div class="ms-2 me-auto">
-                  <div class="fw-bold">Lapis</div>
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="flexCheckDefault"
-                  />
-                  <label class="form-check-label" for="flexCheckDefault">
-                    Vou doar!
-                  </label>
-                </div>
-                <span class="badge bg-success rounded-pill">0</span>
-              </li>
-              <li
-                class="list-group-item d-flex justify-content-between align-items-start"
-              >
-                <div class="ms-2 me-auto">
-                  <div class="fw-bold">Borracha</div>
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="flexCheckDefault"
-                  />
-                  <label class="form-check-label" for="flexCheckDefault">
-                    Vou doar!
-                  </label>
-                </div>
-                <span class="badge bg-success rounded-pill">0</span>
-              </li>
-            </ol>
-          </div>
-          <a
-            class="btn btn-outline-roxo verdeLetra btn-outline-primary ms-4 mb-2 mx-autopx-2"
-            href=""
-            >Doar</a
-          >
-        </div>
-      </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="flush-headingThree">
-          <button
-            class=" accordion-button collapsed roxoLetra"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#flush-collapseThree"
-            aria-expanded="false"
-            aria-controls="flush-collapseThree"
-          >
-            Nome do aluno: Escola:
-          </button>
-        </h2>
-        <div
-          id="flush-collapseThree"
-          class="accordion-collapse collapse"
-          aria-labelledby="flush-headingThree"
-          data-bs-parent="#accordionFlushExample"
-        >
-          <div class="accordion-body">
-            <p class="roxoLetra">Itens da lista escolar:</p>
-            <ol class="list-group list-group-numbered">
-              <li
-                class="list-group-item d-flex justify-content-between align-items-start"
-              >
-                <div class="ms-2 me-auto">
-                  <div class="fw-bold">Caderno</div>
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="flexCheckDefault"
-                  />
-                  <label class="form-check-label" for="flexCheckDefault">
-                    Vou doar!
-                  </label>
-                </div>
-                <span class="badge bg-success rounded-pill">0</span>
-              </li>
-              <li
-                class="list-group-item d-flex justify-content-between align-items-start"
-              >
-                <div class="ms-2 me-auto">
-                  <div class="fw-bold">Lapis</div>
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="flexCheckDefault"
-                  />
-                  <label class="form-check-label" for="flexCheckDefault">
-                    Vou doar!
-                  </label>
-                </div>
-                <span class="badge bg-success rounded-pill">0</span>
-              </li>
-              <li
-                class="list-group-item d-flex justify-content-between align-items-start"
-              >
-                <div class="ms-2 me-auto">
-                  <div class="fw-bold">Borracha</div>
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="flexCheckDefault"
-                  />
-                  <label class="form-check-label" for="flexCheckDefault">
-                    Vou doar!
-                  </label>
-                </div>
-                <span class="badge bg-success rounded-pill">0</span>
-              </li>
-            </ol>
-          </div>
-          <a
-            class="btn btn-outline-roxo verdeLetra btn-outline-primary ms-4 mb-2 mx-autopx-2"
-            href=""
-            >Doar</a
-          >
+            <thead class="col-9">
+              <tr>
+                <th class="text-warning" scope="col">#</th>
+                <th class="text-warning" scope="col">Escola</th>
+                <th class="text-warning" scope="col">Estudante</th>
+                <th class="text-warning" scope="col">Material</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="escola in lista" :key="escola.id">
+                <td>{{ escola.id }}</td>
+                <td>{{ escola.name }}</td>
+                <td>{{}}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </section>
@@ -290,7 +149,31 @@
 </template>
 
 <script>
-export default {};
+import School from "../services/escola";
+
+export default {
+  data() {
+    return {
+      lista: [],
+    };
+  },
+
+  mounted() {
+    School.listar().then((resposta) => {
+      console.log(resposta.data);
+      this.lista = resposta.data;
+    });
+  },
+};
+
+// new Vue({
+//   el: "#escola",
+//   data() {
+//     return {
+//       lista: [],
+//     };
+//   },
+// });
 </script>
 
 <style>
