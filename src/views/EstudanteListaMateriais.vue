@@ -24,7 +24,7 @@
           <div class="col-3">
             <li class="nav-item">
               <router-link to="/">
-                <a class="nav-link" href="">Inicio</a>
+                <a class="nav-link" href="/#/contausuariocadastrardoacao">Inicio</a>
               </router-link>
             </li>
           </div>
@@ -119,37 +119,38 @@
           </div>
         </div>
       </section>
-
     <div v-if=this.$route.query.student>
       <section>
         <form class="row" @submit.prevent = "adicionarItem">
           <div class="container tamanho">          
             <div class="col-md-12 position-relative mt-3 mx-auto">
-              <label for="validationTooltip02" class="form-label roxoLetra mx-2">Seleciona o Material</label>                          
+              <label for="validationTooltip02" class="form-label roxoLetra mx-1">Seleciona o Material</label> 
               <select class="form-control" v-model = "itemOrder.itemId">
                 <option v-for="item in items" :value="item.id" :key="item.id">
                 {{ item.product }}
                 </option>
               </select>            
-            </div>
+            </div><br>
             <div class="row row-cols-2 ">
               <div class="col bot setarPadding  mx-auto">                
+                <label for="formQuantity" class="roxoLetra mx-1">Selecione a Quantidade</label> 
                 <select
                   class="btn text-white botaoVerde botaoEstudante mx-2 mt-3 col-6 alinhamentoBotao"
                   name="validationItens"
                   v-model="itemOrder.quantity"
-                  id="validationItens">
-                  <option selected="selected">1</option>                  
-                  <option>2</option>
+                  id="formQuantity"                  
+                  >
+                  <option selected>1</option>                  
+                  <option >2</option>
                   <option>3</option>
                   <option>4</option>
                   <option>5</option>
                 </select>
               </div>
-              <div class="col bot setarPadding  mx-auto">
+              <div class="col bot setarPadding  mx-auto" style="margin-top:25px">
                 <button
                   type="submit"
-                  class="btn botaoVerde botaoEstudante mt-3 mx-2 col-6 alinhamentoBotao">
+                  class="btn text-white botaoVerde botaoEstudante mt-3 mx-2 col-6 alinhamentoBotao">
                   Adicionar
                 </button>
               </div>
