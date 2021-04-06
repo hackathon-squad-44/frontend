@@ -83,10 +83,12 @@
               />
             </div>
             <div class="col-md-6 position-relative mt-3 mx-auto">
-              <label for="validationTooltip02" class="form-label roxoLetra mx-2">Selecione a Escola</label>                          
-              <select class="form-control" v-model = "student.schoolId">
-                <option v-for="school in schools" :value="school.id" :key="school.id">
-                {{ school.name }}
+              <label for="validationTooltip02" class="form-label roxoLetra mx-2"
+                >Selecione a Escola</label
+              >
+              <select class="form-control" v-model="student.schoolId">
+                <option v-for="item in items" :value="item.id" :key="item.id">
+                  {{ item.name }}
                 </option>
               </select>
             </div>
@@ -120,26 +122,36 @@
         </div>
       </section>
 
-    <div v-if=this.$route.query.student>
-      <section>
-        <form class="row" @submit.prevent = "adicionarItem">
-          <div class="container tamanho">          
-            <div class="col-md-12 position-relative mt-3 mx-auto">
-              <label for="validationTooltip02" class="form-label roxoLetra mx-2">Seleciona o Material</label>                          
-              <select class="form-control" v-model = "itemOrder.itemId">
-                <option v-for="item in items" :value="item.id" :key="item.id">
-                {{ item.product }}
-                </option>
-              </select>            
+      <div v-if="this.$route.query.student">
+        <section>
+          <div class="container tamanho">
+            <div class="col-md-6 position-relative mt-3 mx-auto">
+              <div
+                class="input-group flex-nowrap container-md col-6 setarPadding"
+              >
+                <span class="input-group-text" id="addon-wrapping">
+                  &#128269;</span
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Pesquisar material"
+                  aria-label="Username"
+                  aria-describedby="addon-wrapping"
+                />
+              </div>
             </div>
             <div class="row row-cols-2 ">
-              <div class="col bot setarPadding  mx-auto">                
+              <div class="col bot setarPadding  mx-auto">
                 <select
                   class="btn text-white botaoVerde botaoEstudante mx-2 mt-3 col-6 alinhamentoBotao"
-                  name="validationItens"
-                  v-model="itemOrder.quantity"
-                  id="validationItens">
-                  <option selected="selected">1</option>                  
+                  name="validationItens
+                            "
+                  id="validationItens"
+                  ><option class="  mt-2 selected disabled value="
+                    >Escolha</option
+                  >
+                  <option>1</option>
                   <option>2</option>
                   <option>3</option>
                   <option>4</option>
@@ -149,38 +161,40 @@
               <div class="col bot setarPadding  mx-auto">
                 <button
                   type="submit"
-                  class="btn botaoVerde botaoEstudante mt-3 mx-2 col-6 alinhamentoBotao">
-                  Adicionar
+                  class="btn botaoVerde botaoEstudante mt-3 mx-2 col-6 alinhamentoBotao"
+                >
+                  <a href="">Adicionar</a>
                 </button>
               </div>
             </div>
           </div>
-        </form>
-      </section>          
-
-      <div class="col-md col-12 mt-5 mx-auto tamanho2">
-        <div class="col-6 tamanho2  ">
-          <table class="table table-striped table-bordered border-success  mx-auto">
-            <thead class="col-9">
-              <tr>
-                <th class="text-warning" scope="col">#</th>
-                <th class="text-warning" scope="col">Material</th>
-                <th class="text-warning" scope="col">Quantidade</th>
-              </tr>
-            </thead>            
-            <tbody>
-              <tr v-for="item in this.studentFind.itemOrder" :key="item">
-                <td>{{item.itemId}}</td>                
-                <td>{{item.itemProduct}}</td>                
-                <td>{{item.quantity}}</td>                
-              </tr>                            
-            </tbody>
-          </table>          
+        </section>
+        {{ this.studentFind.itemOrder }}
+        <div class="col-md col-12 mt-5 mx-auto tamanho2">
+          <div class="col-6 tamanho2  ">
+            <table
+              class="table table-striped table-bordered border-success  mx-auto"
+            >
+              <thead class="col-6">
+                <tr>
+                  <th class="text-warning" scope="col">#</th>
+                  <th class="text-warning" scope="col">Material</th>
+                  <th class="text-warning" scope="col">Quantidade</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="item in this.studentFind.itemOrder" :key="item">
+                  <td>{{ item.itemId }}</td>
+                  <td>{{ item.itemProduct }}</td>
+                  <td>{{ item.quantity }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
-      </div>   
-    </div>
-
-    </main><br><br>
+      </div>
+    </main>
+    <br /><br />
     <div class=" container-fluid backVerde">
       <div class="container">
         <div class="row">
@@ -194,65 +208,50 @@
 </template>
 
 <script>
-import Student from '../service/student'
-import School from '../service/school';
-import Item from '../service/item';
-import ItemOrder from '../service/itemOrder';
-
-import VueCookies from 'vue-cookies'
+import Student from "../service/student";
+import School from "../service/school";
+import VueCookies from "vue-cookies";
 
 export default {
   data() {
     return {
       student: {
-        name: '',       
-        schoolId: '',
-        parentId: VueCookies.get('user').parentId
-      },
-      schools: {         
+        name: "",
+        schoolId: "",
+        parentId: VueCookies.get("user").parentId,
       },
       items: {},
       studentFind: {
-        name: '',
-        schoolName: '',
-        itemOrder: {}
+        name: "",
+        schoolName: "",
+        itemOrder: {},
       },
-      items: {        
-      },
-      itemOrder: {
-        orderId: '',
-        quantity: '',
-        itemId: ''
-      }
-    }
-  }, 
+    };
+  },
   mounted() {
-    School.listar().then(schools => this.schools = schools.data);
-    Item.listar().then(items => this.items = items.data);
-    if(this.$route.query.student){
-      Student.getById(this.$route.query.student).then(student => {      
-        this.studentFind.name = student.data.name
-        this.studentFind.schoolName = student.data.schoolName      
-        this.studentFind.itemOrder = student.data.itemOrder        
-        this.itemOrder.orderId = student.data.orderId
-      })
-    }    
+    School.listar().then((school) => {
+      this.items = school.data;
+    });
+    if (this.$route.query.student) {
+      Student.getById(this.$route.query.student).then((student) => {
+        this.studentFind.name = student.data.name;
+        this.studentFind.schoolName = student.data.schoolName;
+        student.data.itemOrder.forEach((element) => {
+          this.studentFind.itemOrder = element;
+        });
+      });
+    }
   },
   methods: {
     salvar() {
-      Student.salvar(this.student).then(resposta => {        
-        this.$router.push('estudantelistamateriais?student=' + resposta.data.id);
-      })       
+      Student.salvar(this.student).then((resposta) => {
+        this.$router.push(
+          "estudantelistamateriais?student=" + resposta.data.id
+        );
+      });
     },
-
-    adicionarItem() {      
-      console.log(this.itemOrder)
-      ItemOrder.salvar(this.itemOrder).then(resposta => {        
-        location.reload();
-      })
-    }
-  }
-}
+  },
+};
 </script>
 
 <style>
