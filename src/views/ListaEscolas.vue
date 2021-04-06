@@ -127,10 +127,10 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
+              <tr v-for="escola in lista" :key="escola.id">
+                <td>{{ escola.id }}</td>
+                <td>{{ escola.name }}</td>
+                <td>{{}}</td>
               </tr>
             </tbody>
           </table>
