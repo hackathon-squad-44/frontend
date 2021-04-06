@@ -122,7 +122,7 @@
                   <tbody>
                     <tr v-for="student in this.students" :key="student.id">
                       <td>{{student.id}}</td>
-                      <td>{{student.name}}</td>
+                      <td><a v-bind:href="'/#/estudantelistamateriais?student='+student.id">{{student.name}}</a></td>
                       <td>{{student.schoolName}}</td>
                     </tr>                            
                   </tbody>
