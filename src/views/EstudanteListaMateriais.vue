@@ -119,47 +119,40 @@
 
     <div v-if=this.$route.query.student>
       <section>
-        <div class="container tamanho">
-          <div class="col-md-6 position-relative mt-3 mx-auto">
-            <div
-              class="input-group flex-nowrap container-md col-6 setarPadding">
-              <span class="input-group-text" id="addon-wrapping">
-                &#128269;</span>
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Pesquisar material"
-                aria-label="Username"
-                aria-describedby="addon-wrapping"
-              />
+        <form class="row" @submit.prevent = "adicionarItem">
+          <div class="container tamanho">          
+            <div class="col-md-12 position-relative mt-3 mx-auto">
+              <label for="validationTooltip02" class="form-label roxoLetra mx-2">Seleciona o Material</label>                          
+              <select class="form-control" v-model = "itemOrder.itemId">
+                <option v-for="item in items" :value="item.id" :key="item.id">
+                {{ item.product }}
+                </option>
+              </select>            
+            </div>
+            <div class="row row-cols-2 ">
+              <div class="col bot setarPadding  mx-auto">
+                <select
+                  class="btn text-white botaoVerde botaoEstudante mx-2 mt-3 col-6 alinhamentoBotao"
+                  name="validationItens"
+                  v-model="itemOrder.quantity"
+                  id="validationItens"><option class="  mt-2 selected disabled value=">Quantidade</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+              <div class="col bot setarPadding  mx-auto">
+                <button
+                  type="submit"
+                  class="btn botaoVerde botaoEstudante mt-3 mx-2 col-6 alinhamentoBotao">
+                  Adicionar
+                </button>
+              </div>
             </div>
           </div>
-          <div class="row row-cols-2 ">
-            <div class="col bot setarPadding  mx-auto">
-              <select
-                class="btn text-white botaoVerde botaoEstudante mx-2 mt-3 col-6 alinhamentoBotao"
-                name="validationItens
-                            "
-                id="validationItens"
-                ><option class="  mt-2 selected disabled value="
-                  >Escolha</option
-                >
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-              </select>
-            </div>
-            <div class="col bot setarPadding  mx-auto">
-              <button
-                type="submit"
-                class="btn botaoVerde botaoEstudante mt-3 mx-2 col-6 alinhamentoBotao">
-                <a href="">Adicionar</a>
-              </button>
-            </div>
-          </div>
-        </div>
+        </form>
       </section>          
 
       <div class="col-md col-12 mt-5 mx-auto tamanho2">
@@ -200,6 +193,8 @@
 <script>
 import Student from '../service/student'
 import School from '../service/school';
+import Item from '../service/item';
+
 import VueCookies from 'vue-cookies'
 
 export default {  
@@ -216,18 +211,25 @@ export default {
         name: '',
         schoolName: '',
         itemOrder: {}
+      },
+      items: {        
+      },
+      itemOrder: {
+        orderId: '',
+        quantity: '',
+        itemId: ''
       }
     }
   }, 
   mounted() {
-    School.listar().then(school => {
-      this.schools = school.data;      
-    });
+    School.listar().then(schools => this.schools = schools.data);
+    Item.listar().then(items => this.items = items.data);
     if(this.$route.query.student){
       Student.getById(this.$route.query.student).then(student => {      
         this.studentFind.name = student.data.name
         this.studentFind.schoolName = student.data.schoolName      
         this.studentFind.itemOrder = student.data.itemOrder        
+        this.itemOrder.orderId = student.data.orderId
       })
     }    
   },
@@ -236,6 +238,10 @@ export default {
       Student.salvar(this.student).then(resposta => {        
         this.$router.push('estudantelistamateriais?student=' + resposta.data.id);
       })       
+    },
+
+    adicionarItem() {      
+      console.log(this.itemOrder)
     }
   }
 }
