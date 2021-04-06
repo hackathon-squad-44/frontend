@@ -64,9 +64,9 @@
           <h2 class="teste roxoLetra setarPadding mx-auto">
             Escolas
           </h2>
-        </div>
+        </div>        
       </div>
-    </section>
+    </section>    
     <div class="row ">
       <div
         class="input-group flex-nowrap container-md col-12  pt-5 mx-auto barraPesquisa mx-auto "
@@ -74,13 +74,22 @@
         <span class="input-group-text" id="addon-wrapping">
           <img src="../assets/imgs/lupa.svg" alt=""
         /></span>
+        <form             @submit.prevent="filtrarNome">
         <input
           type="text"
           class="form-control"
-          placeholder="Digite o material ou escola"
+          placeholder="Buscar o nome da escola"
           aria-label="Username"
           aria-describedby="addon-wrapping"
+          v-model = "filtroNome"
         />
+                  <button
+            type="submit"
+            class="btn botaoVerde botao2  alinhamentoBotao text-white"
+          >
+            Buscar
+          </button>
+          </form>
       </div>
     </div>
     <div
@@ -89,50 +98,75 @@
       <span class="input-group-text" id="addon-wrapping">
         <img src="../assets/imgs/alfinete.svg" alt="" />
       </span>
+      <form             @submit.prevent="filtrarCidade">
       <input
         type="text"
         class="form-control"
-        placeholder="Cidade, Estado ou CEP"
+        placeholder="Buscar a escola por Cidade"
         aria-label="Username"
         aria-describedby="addon-wrapping"
+        v-model = "filtroCidade"
       />
+                <button
+            type="submit"
+            class="btn botaoVerde botao2  alinhamentoBotao text-white"
+          >
+            Buscar
+          </button>
+          </form>
     </div>
     <section class="container-sm col-12 mb-2">
       <div class="row">
         <div
           class="form-check container-md col-12  pt-5 barraPesquisa mx-auto setarPadding "
         >
-          <button
-            type="submit"
-            class="btn botaoVerde botao2  alinhamentoBotao text-white"
-          >
-            Procurar Escolas
-          </button>
         </div>
       </div>
     </section>
     <section class="container-sm col-12 mb-5">
-      <div class="col-md col-12 mt-5 mx-auto tamanho2">
-        <div class="col-6 tamanho2">
-          <table
-            class="table table-striped table-bordered border-success mx-auto"
+      <div class="accordion-item" v-for = "school in lista" :key = "school.id">
+        <h2 class="accordion-header" id="flush-headingThree">
+          <button
+            class=" accordion-button collapsed roxoLetra"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#flush-collapseThree"
+            aria-expanded="false"
+            aria-controls="flush-collapseThree"
           >
-            <thead class="col-9">
-              <tr>
-                <th class="text-warning" scope="col">#</th>
-                <th class="text-warning" scope="col">Escola</th>
-                <th class="text-warning" scope="col">Estudante</th>
-                <th class="text-warning" scope="col">Material</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="escola in lista" :key="escola.id">
-                <td>{{ escola.id }}</td>
-                <td>{{ escola.name }}</td>
-                <td>{{}}</td>
-              </tr>
-            </tbody>
-          </table>
+            Escola: {{school.name}}
+          </button>
+        </h2>
+        <div
+          id="flush-collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="flush-headingThree"
+          data-bs-parent="#accordionFlushExample"
+        >
+          <div class="accordion-body" v-for = "student in school.students" :key= "student.id" >
+            <div v-if = "student.itemOrder.length > 0">
+            <p class="roxoLetra">{{student.name}}</p>
+            <ol class="list-group list-group-numbered">
+              <div v-for = "order in student.itemOrder" :key = "order.id">
+              <li
+                class="list-group-item d-flex justify-content-between align-items-start"                
+              >
+
+                  <div class="fw-bold">{{order.itemProduct}}    | quantidade: {{order.quantity}} 
+                    <form @submit.prevent= "doar()">
+                      <input
+                    type="number"
+                    value=""
+                    id="flexCheckDefault"
+                    v-model = "donation.quantity"
+                  />
+                  <button type="submit">doar</button>
+                  </form></div>
+              </li>
+              </div>
+            </ol>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -150,30 +184,57 @@
 
 <script>
 import School from "../services/escola";
+import ItemOrder from "../services/itemOrder"
+import VueCookies from 'vue-cookies'
 
 export default {
   data() {
     return {
       lista: [],
+      donatorId: '',
+      filtroNome: '',
+      filtroCidade: '',
+      donation: {
+           donatorId: '',
+           itemOrderId: '',
+           quantity: ''
+      }
     };
   },
 
   mounted() {
+    this.donation.donatorId = VueCookies.get("user").donatorId
+
     School.listar().then((resposta) => {
       console.log(resposta.data);
       this.lista = resposta.data;
     });
   },
-};
 
-// new Vue({
-//   el: "#escola",
-//   data() {
-//     return {
-//       lista: [],
-//     };
-//   },
-// });
+ methods: {
+      doar() {
+      ItemOrder.doar(this.donation).then((resposta) => {
+        console.log(resposta)
+      });
+    },
+     filtrarCidade() {
+      School.listarCidade(this.filtroCidade).then((resposta) => {
+        if (resposta.status == 200){
+        console.log(resposta)
+        this.lista = resposta.data
+        }
+      });
+    },
+          filtrarNome() {
+      School.listarNome(this.filtroNome).then((resposta) => {
+        if (resposta.status == 200){
+        console.log(resposta)
+        this.lista = resposta.data
+        }
+      });
+    }
+ }
+}
 </script>
 
 <style>
