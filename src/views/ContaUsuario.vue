@@ -57,22 +57,13 @@
     <main>
       <section class="container-sm col-12 ">
         <div class="row">
-          <div class=" container-md col-12  pt-5 setarMargin ">
-            <p class="teste roxoLetra setarPadding mx-auto">
-              Nome do usuario
-            </p>
+          <div class=" col-12  pt-5 setarMargin ">
+            <h2 class="teste roxoLetra setarPadding mx-auto">
+              Bem vindo(a), {{userName}}
+            </h2>
           </div>
         </div>
-      </section>
-      <div class="container">
-        <div class="col-6  mb-5 ">
-          <input
-            type="submit"
-            class="col-6 btn fotoTamanho2 botaoVerde text-white"
-            id=""
-          />
-        </div>
-      </div>
+      </section>      
       <ul class="nav nav-pills nav-fill">
         <li class="nav-item">
           <router-link to="/listaescolas">
@@ -144,7 +135,25 @@
   </div>
 </template>
 
-<script></script>
+<script>
+import Parent from '../service/parent'
+import VueCookies from 'vue-cookies'
+
+export default {
+  data() {
+    return {
+      userName: VueCookies.get('user').name,      
+    }    
+  }, 
+  mounted() {
+      Parent.getById(VueCookies.get('user').parentId).then(resposta => {
+        console.log(resposta)
+        this.students = resposta.data.dependents
+      })
+  }
+}
+
+</script>
 
 <style>
 .px-2a {
