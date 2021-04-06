@@ -153,7 +153,7 @@
               >
 
                   <div class="fw-bold">{{order.itemProduct}}    | quantidade: {{order.quantity}} 
-                    <form @submit.prevent= "doar(order)">
+                    <form @submit.prevent= "doar()">
                       <input
                     type="number"
                     value=""
@@ -212,8 +212,7 @@ export default {
   },
 
  methods: {
-      doar(obj) {
-       this.donation.itemOrderId = obj.id 
+      doar() {
       ItemOrder.doar(this.donation).then((resposta) => {
         console.log(resposta)
       });
