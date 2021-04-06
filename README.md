@@ -1,27 +1,5 @@
 # Mochila cheia
 
-## Project setup
-```
-yarn install
-```
-
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
 
 # Sobre Mochila Cheia:
 **Mochila cheia** é um projeto que visa conectar pessoas que querem ajudar estudantes através de doação de materiais com estudantes que por algum motivo não possuem condições de adquirir os item escolares.
