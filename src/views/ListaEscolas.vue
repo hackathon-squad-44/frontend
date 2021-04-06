@@ -112,27 +112,46 @@
       </div>
     </section>
     <section class="container-sm col-12 mb-5">
-      <div class="col-md col-12 mt-5 mx-auto tamanho2">
-        <div class="col-6 tamanho2">
-          <table
-            class="table table-striped table-bordered border-success mx-auto"
-          >
-            <thead class="col-9">
-              <tr>
-                <th class="text-warning" scope="col">#</th>
-                <th class="text-warning" scope="col">Escola</th>
-                <th class="text-warning" scope="col">Estudante</th>
-                <th class="text-warning" scope="col">Material</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="escola in lista" :key="escola.id">
-                <td>{{ escola.id }}</td>
-                <td>{{ escola.name }}</td>
-                <td>{{}}</td>
-              </tr>
-            </tbody>
-          </table>
+      <div
+        v-for="i in lista"
+        :key="i.id"
+        class="accordion accordion-flush"
+        id="accordionFlushExample"
+      >
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingOne">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#flush-collapseOne"
+              aria-expanded="false"
+              aria-controls="flush-collapseOne"
+              href="#collapseExample"
+              role="button"
+            >
+              Escolas : {{ i.name }}
+            </button>
+          </h2>
+          <ul v-for="j in i.students" :key="j.id">
+            <div
+              id="flush-collapseOne"
+              class="accordion-collapse collapse"
+              aria-labelledby="flush-headingOne"
+              data-bs-parent="#accordionFlushExample"
+              v-if="j.itemOrder.length > 0"
+            >
+              <span class="nome"> {{ j.name }} </span>
+              <li v-for="k in j.itemOrder" :key="k.id">
+                id: {{ k.id }} - {{ k.itemProduct }} | quantidade:
+                {{ k.quantity }} | recebidos: {{ k.received }}
+                <br />
+                <input type="number" name="quantidade" />
+                <button class="doar">Doar</button>
+              </li>
+              <div class="accordion-body"></div>
+            </div>
+          </ul>
         </div>
       </div>
     </section>
@@ -165,20 +184,27 @@ export default {
     });
   },
 };
-
-// new Vue({
-//   el: "#escola",
-//   data() {
-//     return {
-//       lista: [],
-//     };
-//   },
-// });
 </script>
 
 <style>
 .px-2a {
   padding-right: 4.5rem !important;
   padding-left: 3.5rem !important;
+}
+
+ul {
+  list-style: none;
+}
+
+.doar {
+  padding: 5px;
+  margin-left: 4px;
+  border-radius: 8px;
+  background-color: #66922a;
+  color: white;
+}
+
+.doar:hover {
+  background-color: #880fa3;
 }
 </style>
