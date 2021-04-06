@@ -124,7 +124,6 @@
       </div>
     </section>
     <section class="container-sm col-12 mb-5">
-<<<<<<< HEAD
       <div
         v-for="i in lista"
         :key="i.id"
@@ -165,51 +164,6 @@
               <div class="accordion-body"></div>
             </div>
           </ul>
-=======
-      <div class="accordion-item" v-for = "school in lista" :key = "school.id">
-        <h2 class="accordion-header" id="flush-headingThree">
-          <button
-            class=" accordion-button collapsed roxoLetra"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#flush-collapseThree"
-            aria-expanded="false"
-            aria-controls="flush-collapseThree"
-          >
-            Escola: {{school.name}}
-          </button>
-        </h2>
-        <div
-          id="flush-collapseThree"
-          class="accordion-collapse collapse"
-          aria-labelledby="flush-headingThree"
-          data-bs-parent="#accordionFlushExample"
-        >
-          <div class="accordion-body" v-for = "student in school.students" :key= "student.id" >
-            <div v-if = "student.itemOrder.length > 0">
-            <p class="roxoLetra">{{student.name}}</p>
-            <ol class="list-group list-group-numbered">
-              <div v-for = "order in student.itemOrder" :key = "order.id">
-              <li
-                class="list-group-item d-flex justify-content-between align-items-start"                
-              >
-
-                  <div class="fw-bold">{{order.itemProduct}}    | quantidade: {{order.quantity}} 
-                    <form @submit.prevent= "doar()">
-                      <input
-                    type="number"
-                    value=""
-                    id="flexCheckDefault"
-                    v-model = "donation.quantity"
-                  />
-                  <button type="submit">doar</button>
-                  </form></div>
-              </li>
-              </div>
-            </ol>
-            </div>
-          </div>
->>>>>>> 0082ec026b6b595e33bff45c6b7e3edab7ba9494
         </div>
       </div>
     </section>
@@ -250,10 +204,6 @@ export default {
       this.lista = resposta.data;
     });
   },
-<<<<<<< HEAD
-};
-=======
-
  methods: {
       doar() {
       ItemOrder.doar(this.donation).then((resposta) => {
@@ -282,7 +232,6 @@ export default {
     }
  }
 }
->>>>>>> 0082ec026b6b595e33bff45c6b7e3edab7ba9494
 </script>
 
 <style>
