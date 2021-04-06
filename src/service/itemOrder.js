@@ -2,12 +2,8 @@ import { http } from './config'
 
 export default {
 
-    salvar:(studentForm) => {
-        return http.post('student', studentForm)
+    salvar:(itemOrderForm) => {
+        return http.post('item-order', itemOrderForm)
     },
-
-    getById:(id) => {
-        return http.get('student/' + id)
-    }
 
 }

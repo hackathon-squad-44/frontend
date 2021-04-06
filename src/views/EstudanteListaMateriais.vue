@@ -130,13 +130,13 @@
               </select>            
             </div>
             <div class="row row-cols-2 ">
-              <div class="col bot setarPadding  mx-auto">
+              <div class="col bot setarPadding  mx-auto">                
                 <select
                   class="btn text-white botaoVerde botaoEstudante mx-2 mt-3 col-6 alinhamentoBotao"
                   name="validationItens"
                   v-model="itemOrder.quantity"
-                  id="validationItens"><option class="  mt-2 selected disabled value=">Quantidade</option>
-                  <option>1</option>
+                  id="validationItens">
+                  <option selected="selected">1</option>                  
                   <option>2</option>
                   <option>3</option>
                   <option>4</option>
@@ -194,6 +194,7 @@
 import Student from '../service/student'
 import School from '../service/school';
 import Item from '../service/item';
+import ItemOrder from '../service/itemOrder';
 
 import VueCookies from 'vue-cookies'
 
@@ -242,6 +243,9 @@ export default {
 
     adicionarItem() {      
       console.log(this.itemOrder)
+      ItemOrder.salvar(this.itemOrder).then(resposta => {        
+        location.reload();
+      })
     }
   }
 }
