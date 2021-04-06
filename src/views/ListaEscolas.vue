@@ -194,13 +194,10 @@ export default {
       donatorId: '',
       filtroNome: '',
       filtroCidade: '',
-      donation: {
-           donatorId: '',
-           itemOrderId: '',
-           quantity: ''
+      donation: []
       }
-    };
-  },
+    }
+  ,
 
   mounted() {
     this.donation.donatorId = VueCookies.get("user").donatorId
@@ -232,6 +229,10 @@ export default {
         this.lista = resposta.data
         }
       });
+    },
+
+    insertDonation(){
+      this.donation.push()
     }
  }
 }
