@@ -93,7 +93,7 @@
           <p>Basta criar uma conta ou logar clicando no botão abaixo:</p>
           <button class="btn botao  botaoVerde mx-auto" type="button">
             <router-link to="/cadastrarconta">
-              <a href="">Criar Conta</a></router-link
+              <a href="/#/cadastrarconta">Criar Conta</a></router-link
             >
           </button>
         </div>

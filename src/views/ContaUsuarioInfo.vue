@@ -62,21 +62,22 @@
     <main>
       <section class="container-sm col-12 ">
         <div class="row">
+          <div class=" col-12  pt-5 setarMargin ">
+            <h2 class="teste roxoLetra setarPadding mx-auto">
+              Bem vindo(a), {{userName}}
+            </h2>
+          </div>
+        </div>
+      </section>
+      <section class="container-sm col-12 ">
+        <div class="row">
           <div class=" container-md col-12  pt-5 setarMargin ">
-            <p class="teste roxoLetra setarPadding mx-auto">
-              Nome do usuario
+            <p class="teste roxoLetra setarPadding mx-auto">              
             </p>
           </div>
         </div>
       </section>
-      <div class="container">
-        <div class="col-6 mb-3 ">
-          <input
-            type="submit"
-            class="col-6 btn fotoTamanho2 botaoVerde text-white"
-            id=""
-          />
-        </div>
+      <div class="container">        
         <ul class="nav nav-pills nav-fill">
           <li class="nav-item">
             <router-link to="/contausuario">
@@ -107,65 +108,29 @@
               type="text"
               class="form-control verdeLetra"
               id="validationTooltip01"
-              value=""
+              v-value=this.userName
               required
             />
             <div class="valid-tooltip">
               Looks good!
             </div>
-          </div>
-          <div class="col-md-6 position-relative mt-5">
-            <label for="validationTooltip02" class="form-label roxoLetra"
-              >E-mail</label
-            >
-            <input
-              type="text"
-              class="form-control verdeLetra"
-              id="validationTooltip02"
-              value=""
-              required
-            />
-            <div class="valid-tooltip">
-              Looks good!
-            </div>
-          </div>
-          <div class="col-md-4 position-relative mt-5">
-            <label for="validationTooltip05 " class="form-label roxoLetra"
-              >Senha</label
-            >
-            <input
-              type="text"
-              class="form-control verdeLetra"
-              id="validationTooltip05"
-              required
-            />
-            <div class="invalid-tooltip">
-              Entre com um CEP válido.
-            </div>
-          </div>
+          </div>          
           <section class="container-sm col-12 ">
-            <div class="row">
-              <div
-                class=" container-md col-12 mb-3  setarPadding  form-check  mt-5"
-              >
-                <p class="teste mt-2 ps-2 roxoLetra setarMargin">
-                  <router-link to="/"
-                    ><a href="">Sair da minha conta</a></router-link
-                  >
-                  <a href="../views/index.html">
-                    <router-link to="/">
-                      <button
-                        type="button"
-                        class="btn-close ms-2git s"
-                        aria-label="Close"
-                      ></button> </router-link
-                  ></a>
-                </p>
+            <div class="col-md-6 position-relative mt-5">
+              <label for="validationTooltip02" class="form-label roxoLetra">E-mail</label>
+              <input
+                type="text"
+                class="form-control verdeLetra"
+                id="validationTooltip02"
+                value=""
+                required/>
+              <div class="valid-tooltip">
+                Looks good!
               </div>
-            </div>
+            </div>          
           </section>
         </form>
-      </section>
+      </section><br>
     </main>
     <div class=" container-fluid backVerde">
       <div class="container">
@@ -179,8 +144,32 @@
   </div>
 </template>
 
+
 <script>
-export default {};
+import Parent from '../service/parent'
+import VueCookies from 'vue-cookies'
+
+export default {
+  data() {
+    return {
+      userName: VueCookies.get('user').name,
+      userEmail: VueCookies.get('user').name,
+      students: {
+
+      }
+    }    
+  }, 
+  mounted() {
+      Parent.getById(VueCookies.get('user').parentId).then(resposta => {
+        console.log(resposta)
+        this.students = resposta.data.dependents
+      })
+  },
+  methods: {
+    
+  }  
+}
+
 </script>
 
 <style>
