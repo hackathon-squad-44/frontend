@@ -87,9 +87,7 @@
                 </option>
               </select>            
             </div>
-          </div>          
-          {{student.name}}
-          {{schoolId}}          
+          </div>                    
           
           <section class="col-md-6 position-relative mt-3 mx-auto">
             <div class="row row-cols-2 ">
@@ -156,43 +154,32 @@
             <div class="col bot setarPadding  mx-auto">
               <button
                 type="submit"
-                class="btn botaoVerde botaoEstudante mt-3 mx-2 col-6 alinhamentoBotao"
-              >
+                class="btn botaoVerde botaoEstudante mt-3 mx-2 col-6 alinhamentoBotao">
                 <a href="">Adicionar</a>
               </button>
             </div>
           </div>
         </div>
-      </section>      
-      <div class="col-md col-6 mt-5 mx-auto tamanho2">
+      </section>    
+      {{this.studentFind.itemOrder}}                   
+      <div class="col-md col-12 mt-5 mx-auto tamanho2">
         <div class="col-6 tamanho2  ">
-          <table
-            class="table table-striped table-bordered border-success  mx-auto"
-          >
+          <table class="table table-striped table-bordered border-success  mx-auto">
             <thead class="col-6">
               <tr>
                 <th class="text-warning" scope="col">#</th>
                 <th class="text-warning" scope="col">Material</th>
                 <th class="text-warning" scope="col">Quantidade</th>
               </tr>
-            </thead>
+            </thead>            
             <tbody>
-              <tr>
-                <th scope="row"></th>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <th scope="row"></th>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <th scope="row"></th>
-                <td colspan="2"></td>
-              </tr>
+              <tr v-for="item in this.studentFind.itemOrder" :key="item">
+                <td>{{item.itemId}}</td>                
+                <td>{{item.itemProduct}}</td>                
+                <td>{{item.quantity}}</td>                
+              </tr>                            
             </tbody>
-          </table>
+          </table>          
         </div>
       </div>
     </div>
@@ -213,8 +200,7 @@
 <script>
 import Student from '../service/student'
 import School from '../service/school';
-
-
+import VueCookies from 'vue-cookies'
 
 export default {  
   data() {
@@ -222,7 +208,7 @@ export default {
       student: {
         name: '',       
         schoolId: '',
-        parentId: 1
+        parentId: VueCookies.get('user').parentId
       },
       items: {         
       },
@@ -237,23 +223,21 @@ export default {
     School.listar().then(school => {
       this.items = school.data;      
     });
-    Student.getById(this.$route.query.student).then(student => {
-      console.log(student);
-      this.studentFind.name = student.data.name
-      this.studentFind.schoolName = student.data.schoolName
-      student.data.itemOrder.forEach(element => {
-        this.itemOrder = element.data
-      });
-    })
+    if(this.$route.query.student){
+      Student.getById(this.$route.query.student).then(student => {      
+        this.studentFind.name = student.data.name
+        this.studentFind.schoolName = student.data.schoolName      
+        student.data.itemOrder.forEach(element => {
+          this.studentFind.itemOrder = element             
+        });              
+      })
+    }    
   },
   methods: {
-    salvar() {/*
-      Student.salvar(this.student).then(resposta,erro => {
-        if(resposta) {
-            console.log(resposta)
-            console.log(erro)
-        }  
-      }) */          
+    salvar() {
+      Student.salvar(this.student).then(resposta => {        
+        this.$router.push('estudantelistamateriais?student=' + resposta.data.id);
+      })       
     }
   }
 }
